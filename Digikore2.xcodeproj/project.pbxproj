@@ -14,6 +14,25 @@
 		E560FACA1FC72C130081DEAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E560FAC81FC72C130081DEAE /* LaunchScreen.storyboard */; };
 		E560FAD51FC72C130081DEAE /* Digikore2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E560FAD41FC72C130081DEAE /* Digikore2Tests.swift */; };
 		E560FAE01FC72C130081DEAE /* Digikore2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E560FADF1FC72C130081DEAE /* Digikore2UITests.swift */; };
+		E560FB691FC731AD0081DEAE /* EffectImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = E560FB621FC731AC0081DEAE /* EffectImages.swift */; };
+		E560FB6A1FC731AD0081DEAE /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E560FB631FC731AC0081DEAE /* Resource.swift */; };
+		E560FB6B1FC731AD0081DEAE /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E560FB641FC731AC0081DEAE /* Unit.swift */; };
+		E560FB6C1FC731AD0081DEAE /* Character.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = E560FB651FC731AC0081DEAE /* Character.swift.swift */; };
+		E560FB6D1FC731AD0081DEAE /* EffectImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E560FB661FC731AC0081DEAE /* EffectImageManager.swift */; };
+		E560FB6E1FC731AD0081DEAE /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E560FB671FC731AC0081DEAE /* SoundManager.swift */; };
+		E560FB6F1FC731AD0081DEAE /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E560FB681FC731AC0081DEAE /* Enemy.swift */; };
+		E560FB701FC732970081DEAE /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = E560FB5F1FC731790081DEAE /* UIImage+Gif.swift */; };
+		E560FB711FC732970081DEAE /* NSCoder+CodingKeySettable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E560FB5D1FC731790081DEAE /* NSCoder+CodingKeySettable.swift */; };
+		E560FB721FC732970081DEAE /* UINavigationController+Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E560FB601FC731790081DEAE /* UINavigationController+Orientation.swift */; };
+		E560FB731FC732970081DEAE /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E560FB611FC731790081DEAE /* UIView+Animation.swift */; };
+		E560FB741FC732970081DEAE /* UIImage+Cropping.swift in Sources */ = {isa = PBXBuildFile; fileRef = E560FB5E1FC731790081DEAE /* UIImage+Cropping.swift */; };
+		E560FB751FC732AF0081DEAE /* BattleUnitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E560FB571FC731490081DEAE /* BattleUnitView.swift */; };
+		E560FB761FC732AF0081DEAE /* BattleLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E560FB531FC731490081DEAE /* BattleLog.swift */; };
+		E560FB771FC732AF0081DEAE /* BattleAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E560FB4F1FC731490081DEAE /* BattleAnimationViewController.swift */; };
+		E560FB781FC732AF0081DEAE /* BattleDetailLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E560FB511FC731490081DEAE /* BattleDetailLogViewController.swift */; };
+		E560FB791FC732AF0081DEAE /* BattleLogGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E560FB541FC731490081DEAE /* BattleLogGenerator.swift */; };
+		E560FB7A1FC732AF0081DEAE /* BattleLogicProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E560FB551FC731490081DEAE /* BattleLogicProtocol.swift */; };
+		E560FB7B1FC732AF0081DEAE /* BattleLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E560FB561FC731490081DEAE /* BattleLogViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +66,57 @@
 		E560FADB1FC72C130081DEAE /* Digikore2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Digikore2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E560FADF1FC72C130081DEAE /* Digikore2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Digikore2UITests.swift; sourceTree = "<group>"; };
 		E560FAE11FC72C130081DEAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E560FB451FC731040081DEAE /* aura.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = aura.mp3; sourceTree = "<group>"; };
+		E560FB461FC731040081DEAE /* battle.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = battle.m4a; sourceTree = "<group>"; };
+		E560FB471FC731040081DEAE /* hometown.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = hometown.m4a; sourceTree = "<group>"; };
+		E560FB481FC731040081DEAE /* lose.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = lose.m4a; sourceTree = "<group>"; };
+		E560FB491FC731040081DEAE /* punch-middle2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "punch-middle2.mp3"; sourceTree = "<group>"; };
+		E560FB4A1FC731040081DEAE /* select.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = select.mp3; sourceTree = "<group>"; };
+		E560FB4B1FC731040081DEAE /* sword-slash1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sword-slash1.mp3"; sourceTree = "<group>"; };
+		E560FB4C1FC731040081DEAE /* win.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = win.m4a; sourceTree = "<group>"; };
+		E560FB4E1FC731490081DEAE /* battle.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = battle.gif; sourceTree = "<group>"; };
+		E560FB4F1FC731490081DEAE /* BattleAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleAnimationViewController.swift; sourceTree = "<group>"; };
+		E560FB501FC731490081DEAE /* BattleAnimationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BattleAnimationViewController.xib; sourceTree = "<group>"; };
+		E560FB511FC731490081DEAE /* BattleDetailLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleDetailLogViewController.swift; sourceTree = "<group>"; };
+		E560FB521FC731490081DEAE /* BattleDetailLogViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BattleDetailLogViewController.xib; sourceTree = "<group>"; };
+		E560FB531FC731490081DEAE /* BattleLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleLog.swift; sourceTree = "<group>"; };
+		E560FB541FC731490081DEAE /* BattleLogGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleLogGenerator.swift; sourceTree = "<group>"; };
+		E560FB551FC731490081DEAE /* BattleLogicProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleLogicProtocol.swift; sourceTree = "<group>"; };
+		E560FB561FC731490081DEAE /* BattleLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleLogViewController.swift; sourceTree = "<group>"; };
+		E560FB571FC731490081DEAE /* BattleUnitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleUnitView.swift; sourceTree = "<group>"; };
+		E560FB581FC731490081DEAE /* BattleUnitView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BattleUnitView.xib; sourceTree = "<group>"; };
+		E560FB5D1FC731790081DEAE /* NSCoder+CodingKeySettable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSCoder+CodingKeySettable.swift"; sourceTree = "<group>"; };
+		E560FB5E1FC731790081DEAE /* UIImage+Cropping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Cropping.swift"; sourceTree = "<group>"; };
+		E560FB5F1FC731790081DEAE /* UIImage+Gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
+		E560FB601FC731790081DEAE /* UINavigationController+Orientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Orientation.swift"; sourceTree = "<group>"; };
+		E560FB611FC731790081DEAE /* UIView+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Animation.swift"; sourceTree = "<group>"; };
+		E560FB621FC731AC0081DEAE /* EffectImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectImages.swift; sourceTree = "<group>"; };
+		E560FB631FC731AC0081DEAE /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		E560FB641FC731AC0081DEAE /* Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
+		E560FB651FC731AC0081DEAE /* Character.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift.swift; sourceTree = "<group>"; };
+		E560FB661FC731AC0081DEAE /* EffectImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectImageManager.swift; sourceTree = "<group>"; };
+		E560FB671FC731AC0081DEAE /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		E560FB681FC731AC0081DEAE /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
+		E560FB7C1FC735FD0081DEAE /* r_fire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = r_fire.png; sourceTree = "<group>"; };
+		E560FB7D1FC735FD0081DEAE /* オーディン.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "オーディン.png"; sourceTree = "<group>"; };
+		E560FB7E1FC735FD0081DEAE /* sammon2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sammon2.gif; sourceTree = "<group>"; };
+		E560FB7F1FC735FD0081DEAE /* sougen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sougen.png; sourceTree = "<group>"; };
+		E560FB801FC735FD0081DEAE /* ユミル.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ユミル.png"; sourceTree = "<group>"; };
+		E560FB811FC735FD0081DEAE /* sam2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sam2.gif; sourceTree = "<group>"; };
+		E560FB821FC735FD0081DEAE /* mes_bk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mes_bk.png; sourceTree = "<group>"; };
+		E560FB831FC735FD0081DEAE /* r_thunder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = r_thunder.png; sourceTree = "<group>"; };
+		E560FB841FC735FE0081DEAE /* ヴァルキリー.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ヴァルキリー.png"; sourceTree = "<group>"; };
+		E560FB851FC735FE0081DEAE /* slash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slash.png; sourceTree = "<group>"; };
+		E560FB861FC735FE0081DEAE /* title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = title.png; sourceTree = "<group>"; };
+		E560FB871FC735FE0081DEAE /* s22.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = s22.gif; sourceTree = "<group>"; };
+		E560FB881FC735FE0081DEAE /* r_ice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = r_ice.png; sourceTree = "<group>"; };
+		E560FB891FC735FF0081DEAE /* シャドウ.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "シャドウ.png"; sourceTree = "<group>"; };
+		E560FB8A1FC735FF0081DEAE /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		E560FB8B1FC735FF0081DEAE /* r_leaf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = r_leaf.png; sourceTree = "<group>"; };
+		E560FB8C1FC735FF0081DEAE /* r_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = r_dark.png; sourceTree = "<group>"; };
+		E560FB8D1FC736000081DEAE /* sozai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sozai.png; sourceTree = "<group>"; };
+		E560FB8E1FC736000081DEAE /* r_shine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = r_shine.png; sourceTree = "<group>"; };
+		E560FB8F1FC736000081DEAE /* sozai2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sozai2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +167,22 @@
 		E560FABE1FC72C130081DEAE /* Digikore2 */ = {
 			isa = PBXGroup;
 			children = (
+				E560FB651FC731AC0081DEAE /* Character.swift.swift */,
+				E560FB661FC731AC0081DEAE /* EffectImageManager.swift */,
+				E560FB621FC731AC0081DEAE /* EffectImages.swift */,
+				E560FB681FC731AC0081DEAE /* Enemy.swift */,
+				E560FB631FC731AC0081DEAE /* Resource.swift */,
+				E560FB671FC731AC0081DEAE /* SoundManager.swift */,
+				E560FB641FC731AC0081DEAE /* Unit.swift */,
 				E560FABF1FC72C130081DEAE /* AppDelegate.swift */,
 				E560FAC11FC72C130081DEAE /* ViewController.swift */,
 				E560FAC31FC72C130081DEAE /* Main.storyboard */,
 				E560FAC61FC72C130081DEAE /* Assets.xcassets */,
 				E560FAC81FC72C130081DEAE /* LaunchScreen.storyboard */,
 				E560FACB1FC72C130081DEAE /* Info.plist */,
+				E560FB5C1FC731790081DEAE /* Extensions */,
+				E560FB4D1FC731490081DEAE /* Battle */,
+				E560FB311FC731040081DEAE /* SupportingFiles */,
 			);
 			path = Digikore2;
 			sourceTree = "<group>";
@@ -123,6 +203,87 @@
 				E560FAE11FC72C130081DEAE /* Info.plist */,
 			);
 			path = Digikore2UITests;
+			sourceTree = "<group>";
+		};
+		E560FB311FC731040081DEAE /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				E560FB321FC731040081DEAE /* Image */,
+				E560FB441FC731040081DEAE /* Sound */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		E560FB321FC731040081DEAE /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				E560FB8A1FC735FF0081DEAE /* logo.png */,
+				E560FB821FC735FD0081DEAE /* mes_bk.png */,
+				E560FB8C1FC735FF0081DEAE /* r_dark.png */,
+				E560FB7C1FC735FD0081DEAE /* r_fire.png */,
+				E560FB881FC735FE0081DEAE /* r_ice.png */,
+				E560FB8B1FC735FF0081DEAE /* r_leaf.png */,
+				E560FB8E1FC736000081DEAE /* r_shine.png */,
+				E560FB831FC735FD0081DEAE /* r_thunder.png */,
+				E560FB871FC735FE0081DEAE /* s22.gif */,
+				E560FB811FC735FD0081DEAE /* sam2.gif */,
+				E560FB7E1FC735FD0081DEAE /* sammon2.gif */,
+				E560FB851FC735FE0081DEAE /* slash.png */,
+				E560FB7F1FC735FD0081DEAE /* sougen.png */,
+				E560FB8D1FC736000081DEAE /* sozai.png */,
+				E560FB8F1FC736000081DEAE /* sozai2.png */,
+				E560FB861FC735FE0081DEAE /* title.png */,
+				E560FB841FC735FE0081DEAE /* ヴァルキリー.png */,
+				E560FB7D1FC735FD0081DEAE /* オーディン.png */,
+				E560FB891FC735FF0081DEAE /* シャドウ.png */,
+				E560FB801FC735FD0081DEAE /* ユミル.png */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		E560FB441FC731040081DEAE /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				E560FB451FC731040081DEAE /* aura.mp3 */,
+				E560FB461FC731040081DEAE /* battle.m4a */,
+				E560FB471FC731040081DEAE /* hometown.m4a */,
+				E560FB481FC731040081DEAE /* lose.m4a */,
+				E560FB491FC731040081DEAE /* punch-middle2.mp3 */,
+				E560FB4A1FC731040081DEAE /* select.mp3 */,
+				E560FB4B1FC731040081DEAE /* sword-slash1.mp3 */,
+				E560FB4C1FC731040081DEAE /* win.m4a */,
+			);
+			path = Sound;
+			sourceTree = "<group>";
+		};
+		E560FB4D1FC731490081DEAE /* Battle */ = {
+			isa = PBXGroup;
+			children = (
+				E560FB4E1FC731490081DEAE /* battle.gif */,
+				E560FB4F1FC731490081DEAE /* BattleAnimationViewController.swift */,
+				E560FB501FC731490081DEAE /* BattleAnimationViewController.xib */,
+				E560FB511FC731490081DEAE /* BattleDetailLogViewController.swift */,
+				E560FB521FC731490081DEAE /* BattleDetailLogViewController.xib */,
+				E560FB531FC731490081DEAE /* BattleLog.swift */,
+				E560FB541FC731490081DEAE /* BattleLogGenerator.swift */,
+				E560FB551FC731490081DEAE /* BattleLogicProtocol.swift */,
+				E560FB561FC731490081DEAE /* BattleLogViewController.swift */,
+				E560FB571FC731490081DEAE /* BattleUnitView.swift */,
+				E560FB581FC731490081DEAE /* BattleUnitView.xib */,
+			);
+			path = Battle;
+			sourceTree = "<group>";
+		};
+		E560FB5C1FC731790081DEAE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E560FB5D1FC731790081DEAE /* NSCoder+CodingKeySettable.swift */,
+				E560FB5E1FC731790081DEAE /* UIImage+Cropping.swift */,
+				E560FB5F1FC731790081DEAE /* UIImage+Gif.swift */,
+				E560FB601FC731790081DEAE /* UINavigationController+Orientation.swift */,
+				E560FB611FC731790081DEAE /* UIView+Animation.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +420,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E560FB7A1FC732AF0081DEAE /* BattleLogicProtocol.swift in Sources */,
+				E560FB6B1FC731AD0081DEAE /* Unit.swift in Sources */,
+				E560FB6E1FC731AD0081DEAE /* SoundManager.swift in Sources */,
 				E560FAC21FC72C130081DEAE /* ViewController.swift in Sources */,
+				E560FB731FC732970081DEAE /* UIView+Animation.swift in Sources */,
+				E560FB6A1FC731AD0081DEAE /* Resource.swift in Sources */,
+				E560FB721FC732970081DEAE /* UINavigationController+Orientation.swift in Sources */,
+				E560FB711FC732970081DEAE /* NSCoder+CodingKeySettable.swift in Sources */,
 				E560FAC01FC72C130081DEAE /* AppDelegate.swift in Sources */,
+				E560FB781FC732AF0081DEAE /* BattleDetailLogViewController.swift in Sources */,
+				E560FB761FC732AF0081DEAE /* BattleLog.swift in Sources */,
+				E560FB771FC732AF0081DEAE /* BattleAnimationViewController.swift in Sources */,
+				E560FB6F1FC731AD0081DEAE /* Enemy.swift in Sources */,
+				E560FB6C1FC731AD0081DEAE /* Character.swift.swift in Sources */,
+				E560FB6D1FC731AD0081DEAE /* EffectImageManager.swift in Sources */,
+				E560FB791FC732AF0081DEAE /* BattleLogGenerator.swift in Sources */,
+				E560FB7B1FC732AF0081DEAE /* BattleLogViewController.swift in Sources */,
+				E560FB701FC732970081DEAE /* UIImage+Gif.swift in Sources */,
+				E560FB691FC731AD0081DEAE /* EffectImages.swift in Sources */,
+				E560FB751FC732AF0081DEAE /* BattleUnitView.swift in Sources */,
+				E560FB741FC732970081DEAE /* UIImage+Cropping.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +607,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C624C553P9;
 				INFOPLIST_FILE = Digikore2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Test.Digikore2;
@@ -441,6 +622,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C624C553P9;
 				INFOPLIST_FILE = Digikore2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Test.Digikore2;
