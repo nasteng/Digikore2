@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="PingFang.ttc">
+            <string>PingFangHK-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BattleUnitView" customModule="Digikore" customModuleProvider="target">
+            <connections>
+                <outlet property="HPBarView" destination="RJ9-PZ-Tkg" id="JGc-KM-btB"/>
+                <outlet property="HPBarWidthConstraint" destination="8ob-eb-iet" id="DrV-0V-n1f"/>
+                <outlet property="HPLabel" destination="AeW-4j-SK3" id="UQD-2k-Dh1"/>
+                <outlet property="baseView" destination="wsP-bf-cyW" id="EBC-CV-eDZ"/>
+                <outlet property="elementImageView" destination="42m-KV-PN6" id="yNu-eg-ZPC"/>
+                <outlet property="sammonEffectImageView" destination="Ol9-ID-aTy" id="Xun-jF-jCc"/>
+                <outlet property="unitImageView" destination="336-uA-zAx" id="9au-4j-Gmu"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="xDe-Kb-dMw">
+            <rect key="frame" x="0.0" y="0.0" width="96" height="108"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ol9-ID-aTy">
+                    <rect key="frame" x="0.0" y="0.0" width="96" height="108"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wsP-bf-cyW">
+                    <rect key="frame" x="0.0" y="0.0" width="96" height="108"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rxm-ak-FdH" userLabel="HPBackgroundView">
+                            <rect key="frame" x="0.0" y="96" width="96" height="12"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RJ9-PZ-Tkg" userLabel="HPBarView">
+                                    <rect key="frame" x="0.0" y="0.0" width="96" height="12"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="12" id="12Q-AN-tfa"/>
+                                        <constraint firstAttribute="width" constant="96" id="8ob-eb-iet"/>
+                                    </constraints>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="500/500" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AeW-4j-SK3" userLabel="HPLabel">
+                                    <rect key="frame" x="0.0" y="0.0" width="96" height="12"/>
+                                    <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="15"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="RJ9-PZ-Tkg" firstAttribute="top" secondItem="Rxm-ak-FdH" secondAttribute="top" id="Btk-W9-4BE"/>
+                                <constraint firstItem="RJ9-PZ-Tkg" firstAttribute="leading" secondItem="Rxm-ak-FdH" secondAttribute="leading" id="GuY-NZ-u3X"/>
+                                <constraint firstAttribute="bottom" secondItem="AeW-4j-SK3" secondAttribute="bottom" id="VQW-2n-Lph"/>
+                                <constraint firstItem="AeW-4j-SK3" firstAttribute="top" secondItem="Rxm-ak-FdH" secondAttribute="top" id="dng-eB-u00"/>
+                                <constraint firstAttribute="trailing" secondItem="AeW-4j-SK3" secondAttribute="trailing" id="y86-8a-Wfq"/>
+                                <constraint firstItem="AeW-4j-SK3" firstAttribute="leading" secondItem="Rxm-ak-FdH" secondAttribute="leading" id="zd9-xb-C2J"/>
+                            </constraints>
+                        </view>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="336-uA-zAx" userLabel="UnitImageView">
+                            <rect key="frame" x="0.0" y="0.0" width="96" height="96"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="96" id="OPR-Zj-K1Z"/>
+                            </constraints>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="42m-KV-PN6" userLabel="ElementImageView">
+                            <rect key="frame" x="0.0" y="71" width="24" height="24"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="336-uA-zAx" firstAttribute="leading" secondItem="wsP-bf-cyW" secondAttribute="leading" id="Ma3-OR-7ag"/>
+                        <constraint firstItem="Rxm-ak-FdH" firstAttribute="leading" secondItem="wsP-bf-cyW" secondAttribute="leading" id="atY-lh-ybX"/>
+                        <constraint firstAttribute="bottom" secondItem="Rxm-ak-FdH" secondAttribute="bottom" id="iaT-Wt-yoS"/>
+                        <constraint firstAttribute="trailing" secondItem="336-uA-zAx" secondAttribute="trailing" id="ope-Jf-VUv"/>
+                        <constraint firstItem="336-uA-zAx" firstAttribute="top" secondItem="wsP-bf-cyW" secondAttribute="top" id="s4R-zl-elj"/>
+                        <constraint firstAttribute="trailing" secondItem="Rxm-ak-FdH" secondAttribute="trailing" id="vW8-ra-YKg"/>
+                        <constraint firstItem="Rxm-ak-FdH" firstAttribute="top" secondItem="336-uA-zAx" secondAttribute="bottom" id="xye-9u-nFZ"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Ol9-ID-aTy" secondAttribute="trailing" id="3SW-Yy-Yn3"/>
+                <constraint firstAttribute="bottom" secondItem="Ol9-ID-aTy" secondAttribute="bottom" id="8eh-kx-iTs"/>
+                <constraint firstAttribute="trailing" secondItem="wsP-bf-cyW" secondAttribute="trailing" id="E0K-nO-QLj"/>
+                <constraint firstAttribute="bottom" secondItem="wsP-bf-cyW" secondAttribute="bottom" id="OK7-oS-AJY"/>
+                <constraint firstItem="Ol9-ID-aTy" firstAttribute="leading" secondItem="xDe-Kb-dMw" secondAttribute="leading" id="UGA-hL-Wmp"/>
+                <constraint firstItem="wsP-bf-cyW" firstAttribute="leading" secondItem="xDe-Kb-dMw" secondAttribute="leading" id="hoy-Pl-zwo"/>
+                <constraint firstItem="Ol9-ID-aTy" firstAttribute="top" secondItem="xDe-Kb-dMw" secondAttribute="top" id="nrH-Mh-Sgf"/>
+                <constraint firstItem="wsP-bf-cyW" firstAttribute="top" secondItem="xDe-Kb-dMw" secondAttribute="top" id="saO-iX-7W1"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-505" y="-48"/>
+        </view>
+    </objects>
+</document>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BattleAnimationViewController" customModule="Digikore" customModuleProvider="target">
+            <connections>
+                <outlet property="battleLogLabel" destination="912-kb-5lZ" id="bSq-fv-nKu"/>
+                <outlet property="battleLogTextView" destination="0xM-K6-yk0" id="rY9-Lb-heT"/>
+                <outlet property="battleStartImageView" destination="ZNg-UR-WUe" id="Zfx-1v-sLg"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sougen.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ti5-SC-3oZ">
+                    <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0xM-K6-yk0">
+                    <rect key="frame" x="20" y="14" width="696" height="75"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mes_bk.png" translatesAutoresizingMaskIntoConstraints="NO" id="QXs-n7-dej">
+                            <rect key="frame" x="0.0" y="0.0" width="696" height="75"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="戦闘開始" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="912-kb-5lZ">
+                            <rect key="frame" x="0.0" y="0.0" width="696" height="75"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="912-kb-5lZ" secondAttribute="trailing" id="2Iy-NI-yi2"/>
+                        <constraint firstAttribute="bottom" secondItem="912-kb-5lZ" secondAttribute="bottom" id="3hc-K8-015"/>
+                        <constraint firstItem="QXs-n7-dej" firstAttribute="leading" secondItem="0xM-K6-yk0" secondAttribute="leading" id="3yd-hu-pG1"/>
+                        <constraint firstAttribute="height" constant="75" id="8W7-lp-0af"/>
+                        <constraint firstItem="QXs-n7-dej" firstAttribute="top" secondItem="0xM-K6-yk0" secondAttribute="top" id="NoD-to-46x"/>
+                        <constraint firstItem="912-kb-5lZ" firstAttribute="top" secondItem="0xM-K6-yk0" secondAttribute="top" id="VYH-SZ-cTc"/>
+                        <constraint firstAttribute="trailing" secondItem="QXs-n7-dej" secondAttribute="trailing" id="Yvq-Xe-yBk"/>
+                        <constraint firstItem="912-kb-5lZ" firstAttribute="leading" secondItem="0xM-K6-yk0" secondAttribute="leading" id="aoY-sa-NeO"/>
+                        <constraint firstAttribute="bottom" secondItem="QXs-n7-dej" secondAttribute="bottom" id="uCw-RS-cTb"/>
+                    </constraints>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZNg-UR-WUe">
+                    <rect key="frame" x="-1" y="-2" width="738" height="417"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="0xM-K6-yk0" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="14" id="29H-4z-NOc"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ti5-SC-3oZ" secondAttribute="trailing" id="CaA-pe-DDy"/>
+                <constraint firstItem="0xM-K6-yk0" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Epa-47-QfU"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Ti5-SC-3oZ" secondAttribute="bottom" id="I1a-7V-eVA"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="0xM-K6-yk0" secondAttribute="trailing" constant="20" id="WHn-Yk-0R0"/>
+                <constraint firstItem="Ti5-SC-3oZ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="c2k-kc-ilA"/>
+                <constraint firstItem="0xM-K6-yk0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="i5G-7K-0IV"/>
+                <constraint firstItem="Ti5-SC-3oZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="j7e-wg-Q2g"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="mes_bk.png" width="960" height="190"/>
+        <image name="sougen.png" width="620" height="457"/>
+    </resources>
+</document>
