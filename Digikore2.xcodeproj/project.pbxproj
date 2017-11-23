@@ -7,6 +7,59 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E50332EE1FC736EF002A92BE /* Character.swift.swift in Resources */ = {isa = PBXBuildFile; fileRef = E560FB651FC731AC0081DEAE /* Character.swift.swift */; };
+		E50332EF1FC736EF002A92BE /* EffectImageManager.swift in Resources */ = {isa = PBXBuildFile; fileRef = E560FB661FC731AC0081DEAE /* EffectImageManager.swift */; };
+		E50332F01FC736EF002A92BE /* EffectImages.swift in Resources */ = {isa = PBXBuildFile; fileRef = E560FB621FC731AC0081DEAE /* EffectImages.swift */; };
+		E50332F11FC736EF002A92BE /* Enemy.swift in Resources */ = {isa = PBXBuildFile; fileRef = E560FB681FC731AC0081DEAE /* Enemy.swift */; };
+		E50332F21FC736EF002A92BE /* Resource.swift in Resources */ = {isa = PBXBuildFile; fileRef = E560FB631FC731AC0081DEAE /* Resource.swift */; };
+		E50332F31FC736EF002A92BE /* SoundManager.swift in Resources */ = {isa = PBXBuildFile; fileRef = E560FB671FC731AC0081DEAE /* SoundManager.swift */; };
+		E50332F41FC736EF002A92BE /* Unit.swift in Resources */ = {isa = PBXBuildFile; fileRef = E560FB641FC731AC0081DEAE /* Unit.swift */; };
+		E50332F51FC736EF002A92BE /* AppDelegate.swift in Resources */ = {isa = PBXBuildFile; fileRef = E560FABF1FC72C130081DEAE /* AppDelegate.swift */; };
+		E50332F61FC736EF002A92BE /* ViewController.swift in Resources */ = {isa = PBXBuildFile; fileRef = E560FAC11FC72C130081DEAE /* ViewController.swift */; };
+		E50332F71FC736F7002A92BE /* NSCoder+CodingKeySettable.swift in Resources */ = {isa = PBXBuildFile; fileRef = E560FB5D1FC731790081DEAE /* NSCoder+CodingKeySettable.swift */; };
+		E50332F81FC736F7002A92BE /* UIImage+Cropping.swift in Resources */ = {isa = PBXBuildFile; fileRef = E560FB5E1FC731790081DEAE /* UIImage+Cropping.swift */; };
+		E50332F91FC736F7002A92BE /* UIImage+Gif.swift in Resources */ = {isa = PBXBuildFile; fileRef = E560FB5F1FC731790081DEAE /* UIImage+Gif.swift */; };
+		E50332FA1FC736F7002A92BE /* UINavigationController+Orientation.swift in Resources */ = {isa = PBXBuildFile; fileRef = E560FB601FC731790081DEAE /* UINavigationController+Orientation.swift */; };
+		E50332FB1FC736F7002A92BE /* UIView+Animation.swift in Resources */ = {isa = PBXBuildFile; fileRef = E560FB611FC731790081DEAE /* UIView+Animation.swift */; };
+		E50332FC1FC73701002A92BE /* battle.gif in Resources */ = {isa = PBXBuildFile; fileRef = E560FB4E1FC731490081DEAE /* battle.gif */; };
+		E50332FD1FC73701002A92BE /* BattleAnimationViewController.swift in Resources */ = {isa = PBXBuildFile; fileRef = E560FB4F1FC731490081DEAE /* BattleAnimationViewController.swift */; };
+		E50332FE1FC73701002A92BE /* BattleAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E560FB501FC731490081DEAE /* BattleAnimationViewController.xib */; };
+		E50332FF1FC73701002A92BE /* BattleDetailLogViewController.swift in Resources */ = {isa = PBXBuildFile; fileRef = E560FB511FC731490081DEAE /* BattleDetailLogViewController.swift */; };
+		E50333001FC73701002A92BE /* BattleDetailLogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E560FB521FC731490081DEAE /* BattleDetailLogViewController.xib */; };
+		E50333011FC73701002A92BE /* BattleLog.swift in Resources */ = {isa = PBXBuildFile; fileRef = E560FB531FC731490081DEAE /* BattleLog.swift */; };
+		E50333021FC73701002A92BE /* BattleLogGenerator.swift in Resources */ = {isa = PBXBuildFile; fileRef = E560FB541FC731490081DEAE /* BattleLogGenerator.swift */; };
+		E50333031FC73701002A92BE /* BattleLogicProtocol.swift in Resources */ = {isa = PBXBuildFile; fileRef = E560FB551FC731490081DEAE /* BattleLogicProtocol.swift */; };
+		E50333041FC73701002A92BE /* BattleLogViewController.swift in Resources */ = {isa = PBXBuildFile; fileRef = E560FB561FC731490081DEAE /* BattleLogViewController.swift */; };
+		E50333051FC73701002A92BE /* BattleUnitView.swift in Resources */ = {isa = PBXBuildFile; fileRef = E560FB571FC731490081DEAE /* BattleUnitView.swift */; };
+		E50333061FC73701002A92BE /* BattleUnitView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E560FB581FC731490081DEAE /* BattleUnitView.xib */; };
+		E50333071FC7370E002A92BE /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E560FB8A1FC735FF0081DEAE /* logo.png */; };
+		E50333081FC7370E002A92BE /* mes_bk.png in Resources */ = {isa = PBXBuildFile; fileRef = E560FB821FC735FD0081DEAE /* mes_bk.png */; };
+		E50333091FC7370E002A92BE /* r_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = E560FB8C1FC735FF0081DEAE /* r_dark.png */; };
+		E503330A1FC7370E002A92BE /* r_fire.png in Resources */ = {isa = PBXBuildFile; fileRef = E560FB7C1FC735FD0081DEAE /* r_fire.png */; };
+		E503330B1FC7370E002A92BE /* r_ice.png in Resources */ = {isa = PBXBuildFile; fileRef = E560FB881FC735FE0081DEAE /* r_ice.png */; };
+		E503330C1FC7370E002A92BE /* r_leaf.png in Resources */ = {isa = PBXBuildFile; fileRef = E560FB8B1FC735FF0081DEAE /* r_leaf.png */; };
+		E503330D1FC7370E002A92BE /* r_shine.png in Resources */ = {isa = PBXBuildFile; fileRef = E560FB8E1FC736000081DEAE /* r_shine.png */; };
+		E503330E1FC7370E002A92BE /* r_thunder.png in Resources */ = {isa = PBXBuildFile; fileRef = E560FB831FC735FD0081DEAE /* r_thunder.png */; };
+		E503330F1FC7370E002A92BE /* s22.gif in Resources */ = {isa = PBXBuildFile; fileRef = E560FB871FC735FE0081DEAE /* s22.gif */; };
+		E50333101FC7370E002A92BE /* sam2.gif in Resources */ = {isa = PBXBuildFile; fileRef = E560FB811FC735FD0081DEAE /* sam2.gif */; };
+		E50333111FC7370E002A92BE /* sammon2.gif in Resources */ = {isa = PBXBuildFile; fileRef = E560FB7E1FC735FD0081DEAE /* sammon2.gif */; };
+		E50333121FC7370E002A92BE /* slash.png in Resources */ = {isa = PBXBuildFile; fileRef = E560FB851FC735FE0081DEAE /* slash.png */; };
+		E50333131FC7370E002A92BE /* sougen.png in Resources */ = {isa = PBXBuildFile; fileRef = E560FB7F1FC735FD0081DEAE /* sougen.png */; };
+		E50333141FC7370E002A92BE /* sozai.png in Resources */ = {isa = PBXBuildFile; fileRef = E560FB8D1FC736000081DEAE /* sozai.png */; };
+		E50333151FC7370E002A92BE /* sozai2.png in Resources */ = {isa = PBXBuildFile; fileRef = E560FB8F1FC736000081DEAE /* sozai2.png */; };
+		E50333161FC7370E002A92BE /* title.png in Resources */ = {isa = PBXBuildFile; fileRef = E560FB861FC735FE0081DEAE /* title.png */; };
+		E50333171FC7370E002A92BE /* ヴァルキリー.png in Resources */ = {isa = PBXBuildFile; fileRef = E560FB841FC735FE0081DEAE /* ヴァルキリー.png */; };
+		E50333181FC7370E002A92BE /* オーディン.png in Resources */ = {isa = PBXBuildFile; fileRef = E560FB7D1FC735FD0081DEAE /* オーディン.png */; };
+		E50333191FC7370E002A92BE /* シャドウ.png in Resources */ = {isa = PBXBuildFile; fileRef = E560FB891FC735FF0081DEAE /* シャドウ.png */; };
+		E503331A1FC7370E002A92BE /* ユミル.png in Resources */ = {isa = PBXBuildFile; fileRef = E560FB801FC735FD0081DEAE /* ユミル.png */; };
+		E503331B1FC7370E002A92BE /* aura.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E560FB451FC731040081DEAE /* aura.mp3 */; };
+		E503331C1FC7370E002A92BE /* battle.m4a in Resources */ = {isa = PBXBuildFile; fileRef = E560FB461FC731040081DEAE /* battle.m4a */; };
+		E503331D1FC7370E002A92BE /* hometown.m4a in Resources */ = {isa = PBXBuildFile; fileRef = E560FB471FC731040081DEAE /* hometown.m4a */; };
+		E503331E1FC7370E002A92BE /* lose.m4a in Resources */ = {isa = PBXBuildFile; fileRef = E560FB481FC731040081DEAE /* lose.m4a */; };
+		E503331F1FC7370E002A92BE /* punch-middle2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E560FB491FC731040081DEAE /* punch-middle2.mp3 */; };
+		E50333201FC7370E002A92BE /* select.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E560FB4A1FC731040081DEAE /* select.mp3 */; };
+		E50333211FC7370E002A92BE /* sword-slash1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E560FB4B1FC731040081DEAE /* sword-slash1.mp3 */; };
+		E50333221FC7370E002A92BE /* win.m4a in Resources */ = {isa = PBXBuildFile; fileRef = E560FB4C1FC731040081DEAE /* win.m4a */; };
 		E560FAC01FC72C130081DEAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E560FABF1FC72C130081DEAE /* AppDelegate.swift */; };
 		E560FAC21FC72C130081DEAE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E560FAC11FC72C130081DEAE /* ViewController.swift */; };
 		E560FAC51FC72C130081DEAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E560FAC31FC72C130081DEAE /* Main.storyboard */; };
@@ -393,6 +446,59 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E50333071FC7370E002A92BE /* logo.png in Resources */,
+				E50333081FC7370E002A92BE /* mes_bk.png in Resources */,
+				E50333091FC7370E002A92BE /* r_dark.png in Resources */,
+				E503330A1FC7370E002A92BE /* r_fire.png in Resources */,
+				E503330B1FC7370E002A92BE /* r_ice.png in Resources */,
+				E503330C1FC7370E002A92BE /* r_leaf.png in Resources */,
+				E503330D1FC7370E002A92BE /* r_shine.png in Resources */,
+				E503330E1FC7370E002A92BE /* r_thunder.png in Resources */,
+				E503330F1FC7370E002A92BE /* s22.gif in Resources */,
+				E50333101FC7370E002A92BE /* sam2.gif in Resources */,
+				E50333111FC7370E002A92BE /* sammon2.gif in Resources */,
+				E50333121FC7370E002A92BE /* slash.png in Resources */,
+				E50333131FC7370E002A92BE /* sougen.png in Resources */,
+				E50333141FC7370E002A92BE /* sozai.png in Resources */,
+				E50333151FC7370E002A92BE /* sozai2.png in Resources */,
+				E50333161FC7370E002A92BE /* title.png in Resources */,
+				E50333171FC7370E002A92BE /* ヴァルキリー.png in Resources */,
+				E50333181FC7370E002A92BE /* オーディン.png in Resources */,
+				E50333191FC7370E002A92BE /* シャドウ.png in Resources */,
+				E503331A1FC7370E002A92BE /* ユミル.png in Resources */,
+				E503331B1FC7370E002A92BE /* aura.mp3 in Resources */,
+				E503331C1FC7370E002A92BE /* battle.m4a in Resources */,
+				E503331D1FC7370E002A92BE /* hometown.m4a in Resources */,
+				E503331E1FC7370E002A92BE /* lose.m4a in Resources */,
+				E503331F1FC7370E002A92BE /* punch-middle2.mp3 in Resources */,
+				E50333201FC7370E002A92BE /* select.mp3 in Resources */,
+				E50333211FC7370E002A92BE /* sword-slash1.mp3 in Resources */,
+				E50333221FC7370E002A92BE /* win.m4a in Resources */,
+				E50332FC1FC73701002A92BE /* battle.gif in Resources */,
+				E50332FD1FC73701002A92BE /* BattleAnimationViewController.swift in Resources */,
+				E50332FE1FC73701002A92BE /* BattleAnimationViewController.xib in Resources */,
+				E50332FF1FC73701002A92BE /* BattleDetailLogViewController.swift in Resources */,
+				E50333001FC73701002A92BE /* BattleDetailLogViewController.xib in Resources */,
+				E50333011FC73701002A92BE /* BattleLog.swift in Resources */,
+				E50333021FC73701002A92BE /* BattleLogGenerator.swift in Resources */,
+				E50333031FC73701002A92BE /* BattleLogicProtocol.swift in Resources */,
+				E50333041FC73701002A92BE /* BattleLogViewController.swift in Resources */,
+				E50333051FC73701002A92BE /* BattleUnitView.swift in Resources */,
+				E50333061FC73701002A92BE /* BattleUnitView.xib in Resources */,
+				E50332F71FC736F7002A92BE /* NSCoder+CodingKeySettable.swift in Resources */,
+				E50332F81FC736F7002A92BE /* UIImage+Cropping.swift in Resources */,
+				E50332F91FC736F7002A92BE /* UIImage+Gif.swift in Resources */,
+				E50332FA1FC736F7002A92BE /* UINavigationController+Orientation.swift in Resources */,
+				E50332FB1FC736F7002A92BE /* UIView+Animation.swift in Resources */,
+				E50332EE1FC736EF002A92BE /* Character.swift.swift in Resources */,
+				E50332EF1FC736EF002A92BE /* EffectImageManager.swift in Resources */,
+				E50332F01FC736EF002A92BE /* EffectImages.swift in Resources */,
+				E50332F11FC736EF002A92BE /* Enemy.swift in Resources */,
+				E50332F21FC736EF002A92BE /* Resource.swift in Resources */,
+				E50332F31FC736EF002A92BE /* SoundManager.swift in Resources */,
+				E50332F41FC736EF002A92BE /* Unit.swift in Resources */,
+				E50332F51FC736EF002A92BE /* AppDelegate.swift in Resources */,
+				E50332F61FC736EF002A92BE /* ViewController.swift in Resources */,
 				E560FACA1FC72C130081DEAE /* LaunchScreen.storyboard in Resources */,
 				E560FAC71FC72C130081DEAE /* Assets.xcassets in Resources */,
 				E560FAC51FC72C130081DEAE /* Main.storyboard in Resources */,
