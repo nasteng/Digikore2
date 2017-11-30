@@ -228,8 +228,12 @@ extension UIImage {
             return nil
         }
         
-        let properties = [kCGImagePropertyGIFDictionary as String: [kCGImagePropertyGIFLoopCount as String: 1]]
-        CGImageDestinationSetProperties(destination, properties as CFDictionary)
+        let property: [String: AnyObject] = [
+            kCGImagePropertyGIFLoopCount as String: 0 as NSNumber,
+            kCGImagePropertyGIFHasGlobalColorMap as String: false as NSNumber
+        ]
+        
+        CGImageDestinationSetProperties(destination, property as CFDictionary)
         
         let frameProperties = [kCGImagePropertyGIFDictionary as String: [kCGImagePropertyGIFDelayTime as String: delay]]
         for image in charaImages {
