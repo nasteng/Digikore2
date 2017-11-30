@@ -190,30 +190,26 @@ class BattleAnimationViewController: UIViewController {
         let enemyViews = allUnitViews.filter { $0.unit?.unitType == .enemy }
 
         DispatchQueue.main.async {
-//            self.battleStartImageView.fadeOut(duration: 0.5, delay: 0.9, completed: {
-                UIView.animate(withDuration: 0.5, animations: {
-                    enemyViews.forEach { (unitView) in
-                        if unitView.unit?.displayName == "シャドウ1" {
-                            unitView.frame = CGRect(x: (self.viewWidth - 96.0 * 4 + 12.0), y: self.drawableHeight / 2 + 12.0, width: 96, height: 96)
-                        } else if unitView.unit?.displayName == "シャドウ2" {
-                            unitView.frame = CGRect(x: (self.viewWidth - 96.0 * 2.5), y: self.drawableHeight / 2 - 48.0, width: 96, height: 96)
-                        } else if unitView.unit?.displayName == "シャドウ3" {
-                            unitView.frame = CGRect(x: (self.viewWidth - 96.0 * 2.5), y: self.drawableHeight - 108.0, width: 96, height: 96)
-                        }
+            UIView.animate(withDuration: 0.5, animations: {
+                enemyViews.forEach { (unitView) in
+                    if unitView.unit?.displayName == "シャドウ1" {
+                        unitView.frame = CGRect(x: (self.viewWidth - 96.0 * 4 + 12.0), y: self.drawableHeight / 2 + 12.0, width: 96, height: 96)
+                    } else if unitView.unit?.displayName == "シャドウ2" {
+                        unitView.frame = CGRect(x: (self.viewWidth - 96.0 * 2.5), y: self.drawableHeight / 2 - 48.0, width: 96, height: 96)
+                    } else if unitView.unit?.displayName == "シャドウ3" {
+                        unitView.frame = CGRect(x: (self.viewWidth - 96.0 * 2.5), y: self.drawableHeight - 108.0, width: 96, height: 96)
                     }
-                })
-                
-                divineViews.forEach({ (unitView) in
-//                    unitView.sammonEffectImageView.fadeIn(duration: 1.0, completed: {
-                        unitView.baseView.fadeIn(duration: 0.5, delay: 0.7, completed: nil)
-//                        unitView.sammonEffectImageView.fadeOut(duration: 0.5, delay: 0.7, completed: nil)
-                    })
-//                })
-//            })
-            SoundManager.shared.play(.bgm(.battle))
+                }
+            })
+            
+            divineViews.forEach({ (unitView) in
+                unitView.baseView.fadeIn(duration: 0.5, delay: 0.7, completed: nil)
+            })
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+        SoundManager.shared.play(.bgm(.battle))
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
             if !self.didBack {
                 self.timer = Timer.scheduledTimer(timeInterval: 1.3, target: self, selector: #selector(self.showBattleLog(_:)), userInfo: self.battleLogs, repeats: true)
             }
@@ -225,64 +221,49 @@ class BattleAnimationViewController: UIViewController {
         
         let shouldMoveUnitName = logs[index].attacker
         let targetView = detectTargetView(with: shouldMoveUnitName)
-        UIView.animate(withDuration: 0.1, delay: 0.0, options: .repeat, animations: {
-            targetView.unitImageView.alpha = 0.0
-            targetView.isHighlighted = true
-        })
         
-        Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(stopFlashing), userInfo: nil, repeats: false)
+        targetView.flash {
+            let log = self.battleLogs[self.index]
+            
+            self.updateHitPointWindow(with: log)
+
+            let shoudMoveUnit = log.attacker
+            
+            if log.damage > 0 {
+                if self.divines.contains(where: {($0.displayName == shoudMoveUnit)}) {
+                    SoundManager.shared.play(.effect(.divine))
+                }
+                
+                if self.enemies.contains(where: {($0.displayName == shoudMoveUnit)}) {
+                    SoundManager.shared.play(.effect(.enemy))
+                }
+            }
+            
+            if let _ = log.dead {
+                self.removeFromField(log.target)
+            }
+            
+            self.index += 1
+            
+            guard self.index < self.battleLogs.count else {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.7, execute: {
+                    self.timer.invalidate()
+                    SoundManager.shared.stop(.bgm(.battle))
+                    
+                    let judgement = self.judgeResult(from: self.allUnitViews)
+                    self.battleLogLabel.text = judgement == "win" ? "戦いに勝利した" : "全滅..."
+                    self.allUnitViews.forEach({ (unitView) in
+                        UIView.animate(withDuration: 1.0, animations: {
+                            unitView.frame = CGRect(x: self.view.frame.maxX + 96, y: unitView.frame.origin.y, width: 96, height: 96)
+                        })
+                    })
+                    SoundManager.shared.play(.result(Result(rawValue: judgement)!))
+                })
+                return
+            }
+        }
         
         battleLogLabel.text = parse(logs[index])
-    }
-    
-    @objc func stopFlashing() {
-        let log = battleLogs[index]
-        allUnitViews.forEach { (unitView) in
-            if unitView.isHighlighted {
-                unitView.layer.removeAllAnimations()
-                unitView.unitImageView.alpha = 1.0
-            }
-            
-            unitView.layoutSubviews()
-        }
-        
-        updateHitPointWindow(with: log)
-        
-        let shoudMoveUnit = log.attacker
-        
-        if log.damage > 0 {
-            if divines.contains(where: {($0.displayName == shoudMoveUnit)}) {
-                SoundManager.shared.play(.effect(.divine))
-            }
-            
-            if enemies.contains(where: {($0.displayName == shoudMoveUnit)}) {
-                SoundManager.shared.play(.effect(.enemy))
-            }
-        }
-        
-        if let _ = log.dead {
-            removeFromField(log.target)
-        }
-        
-        index += 1
-        print("index -> \(index), count -> \(battleLogs.count)")
-        
-        guard index < battleLogs.count else {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7, execute: {
-                self.timer.invalidate()
-                SoundManager.shared.stop(.bgm(.battle))
-                
-                let judgement = self.judgeResult(from: self.allUnitViews)
-                self.battleLogLabel.text = judgement == "win" ? "戦いに勝利した" : "全滅..."
-                self.allUnitViews.forEach({ (unitView) in
-                    UIView.animate(withDuration: 1.0, animations: {
-                        unitView.frame = CGRect(x: self.view.frame.maxX + 96, y: unitView.frame.origin.y, width: 96, height: 96)
-                    })
-                })
-                SoundManager.shared.play(.result(Result(rawValue: judgement)!))
-            })
-            return
-        }
     }
     
     func removeFromField(_ targetName: String) {
@@ -331,6 +312,7 @@ class BattleAnimationViewController: UIViewController {
         let lastHP = log.lastHPOfTarget
         let targetView = detectTargetView(with: target)
         targetView.updateHPLabel(with: lastHP)
+        targetView.layoutSubviews()
     }
     
     func judgeResult(from unitViews: [BattleUnitView]) -> String {

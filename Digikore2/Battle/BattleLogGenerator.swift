@@ -10,11 +10,9 @@ import Foundation
 import UIKit
 
 final class BattleLogGenerator {
-    
-    class func generateBattleLog(divines: [Unit], enemies: [Unit]) -> (logs: [BattleLog], victory: Result) {
+    class func generateBattleLog(divines: [Unit], enemies: [Unit]) -> [BattleLog] {
         var battleLogs: [BattleLog] = []
         var continueBattle = true
-        var victory: Result = .lose
         
         var divines = divines
         var enemies = enemies
@@ -57,11 +55,10 @@ final class BattleLogGenerator {
                     continueBattle = false
                 } else if enemies.filter({$0.status.hitPoint.present > 0}).count == 0 {
                     continueBattle = false
-                    victory = .win
                 }
             }
         }
 
-        return (battleLogs, victory)
+        return battleLogs
     }
 }

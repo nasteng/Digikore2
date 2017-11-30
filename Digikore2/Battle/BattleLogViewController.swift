@@ -61,7 +61,7 @@ class BattleLogViewController: UIViewController {
             createEnemy()
             let dungeonLog = DungeonLog(title: "敵と遭遇した！", survives: divines, enemies: enemies)
             
-            let logs = BattleLogGenerator.generateBattleLog(divines: divines, enemies: enemies).logs
+            let logs = BattleLogGenerator.generateBattleLog(divines: divines, enemies: enemies)
             
             divines = divines.filter { $0.status.hitPoint.present > 0 }
             
@@ -88,7 +88,7 @@ class BattleLogViewController: UIViewController {
     
     func createEnemy() {
         enemies.removeAll()
-        createEnemies().forEach{ enemies.append($0) }
+        createEnemies().forEach { enemies.append($0) }
         
     }
     

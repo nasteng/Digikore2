@@ -107,6 +107,20 @@ class BattleUnitView: UIView {
         HPBarWidthConstraint.constant = frame.width * (lastHP / maxHP)
     }
     
+    func flash(after: (() -> Void)? = nil) {
+        UIView.animate(withDuration: 0.1, delay: 0.0, options: .repeat, animations: {
+            self.alpha = 0.0
+            self.isHighlighted = true
+        }, completion: nil)
+        
+        Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { (timer) in
+            self.alpha = 1.0
+            self.isHighlighted = false
+            self.layer.removeAllAnimations()
+            after?()
+        }
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         gradientLayer?.frame = HPBarView.bounds
