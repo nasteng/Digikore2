@@ -45,7 +45,6 @@
 		E50333111FC7370E002A92BE /* sammon2.gif in Resources */ = {isa = PBXBuildFile; fileRef = E560FB7E1FC735FD0081DEAE /* sammon2.gif */; };
 		E50333121FC7370E002A92BE /* slash.png in Resources */ = {isa = PBXBuildFile; fileRef = E560FB851FC735FE0081DEAE /* slash.png */; };
 		E50333131FC7370E002A92BE /* sougen.png in Resources */ = {isa = PBXBuildFile; fileRef = E560FB7F1FC735FD0081DEAE /* sougen.png */; };
-		E50333141FC7370E002A92BE /* sozai.png in Resources */ = {isa = PBXBuildFile; fileRef = E560FB8D1FC736000081DEAE /* sozai.png */; };
 		E50333151FC7370E002A92BE /* sozai2.png in Resources */ = {isa = PBXBuildFile; fileRef = E560FB8F1FC736000081DEAE /* sozai2.png */; };
 		E50333161FC7370E002A92BE /* title.png in Resources */ = {isa = PBXBuildFile; fileRef = E560FB861FC735FE0081DEAE /* title.png */; };
 		E50333171FC7370E002A92BE /* ヴァルキリー.png in Resources */ = {isa = PBXBuildFile; fileRef = E560FB841FC735FE0081DEAE /* ヴァルキリー.png */; };
@@ -60,6 +59,16 @@
 		E50333201FC7370E002A92BE /* select.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E560FB4A1FC731040081DEAE /* select.mp3 */; };
 		E50333211FC7370E002A92BE /* sword-slash1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E560FB4B1FC731040081DEAE /* sword-slash1.mp3 */; };
 		E50333221FC7370E002A92BE /* win.m4a in Resources */ = {isa = PBXBuildFile; fileRef = E560FB4C1FC731040081DEAE /* win.m4a */; };
+		E50333291FC740C0002A92BE /* DKUnitStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50333281FC740C0002A92BE /* DKUnitStatusView.swift */; };
+		E503332B1FC740CC002A92BE /* DKUnitStatusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E503332A1FC740CC002A92BE /* DKUnitStatusView.xib */; };
+		E50333351FC75D56002A92BE /* Title03c.png in Resources */ = {isa = PBXBuildFile; fileRef = E50333341FC754BC002A92BE /* Title03c.png */; };
+		E50333361FC75D56002A92BE /* book04.png in Resources */ = {isa = PBXBuildFile; fileRef = E503332D1FC74659002A92BE /* book04.png */; };
+		E50333371FC75D56002A92BE /* sword.png in Resources */ = {isa = PBXBuildFile; fileRef = E50333301FC74DB1002A92BE /* sword.png */; };
+		E50333381FC75D56002A92BE /* shield.png in Resources */ = {isa = PBXBuildFile; fileRef = E50333311FC74E01002A92BE /* shield.png */; };
+		E50333391FC75D56002A92BE /* boots.png in Resources */ = {isa = PBXBuildFile; fileRef = E50333321FC74E57002A92BE /* boots.png */; };
+		E503333A1FC75D56002A92BE /* lucky.png in Resources */ = {isa = PBXBuildFile; fileRef = E50333331FC74F20002A92BE /* lucky.png */; };
+		E503333B1FC75D5C002A92BE /* status_valkely.png in Resources */ = {isa = PBXBuildFile; fileRef = E503332C1FC7422A002A92BE /* status_valkely.png */; };
+		E503333C1FC75D8E002A92BE /* DKUnitStatusView.swift in Resources */ = {isa = PBXBuildFile; fileRef = E50333281FC740C0002A92BE /* DKUnitStatusView.swift */; };
 		E560FAC01FC72C130081DEAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E560FABF1FC72C130081DEAE /* AppDelegate.swift */; };
 		E560FAC21FC72C130081DEAE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E560FAC11FC72C130081DEAE /* ViewController.swift */; };
 		E560FAC51FC72C130081DEAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E560FAC31FC72C130081DEAE /* Main.storyboard */; };
@@ -86,6 +95,10 @@
 		E560FB791FC732AF0081DEAE /* BattleLogGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E560FB541FC731490081DEAE /* BattleLogGenerator.swift */; };
 		E560FB7A1FC732AF0081DEAE /* BattleLogicProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E560FB551FC731490081DEAE /* BattleLogicProtocol.swift */; };
 		E560FB7B1FC732AF0081DEAE /* BattleLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E560FB561FC731490081DEAE /* BattleLogViewController.swift */; };
+		E5B9D1E51FCADFAD0003A676 /* sozai.png in Resources */ = {isa = PBXBuildFile; fileRef = E5B9D1E41FCADF5E0003A676 /* sozai.png */; };
+		E5B9D1E91FCAE14E0003A676 /* GL-Runen.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E503332F1FC74854002A92BE /* GL-Runen.ttf */; };
+		E5BABA051FC9BCC0008737A0 /* secret.png in Resources */ = {isa = PBXBuildFile; fileRef = E503333E1FC9A9A8002A92BE /* secret.png */; };
+		E5BABA061FC9BCC0008737A0 /* magic.png in Resources */ = {isa = PBXBuildFile; fileRef = E503333D1FC9A6AE002A92BE /* magic.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +119,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E50333281FC740C0002A92BE /* DKUnitStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKUnitStatusView.swift; sourceTree = "<group>"; };
+		E503332A1FC740CC002A92BE /* DKUnitStatusView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DKUnitStatusView.xib; sourceTree = "<group>"; };
+		E503332C1FC7422A002A92BE /* status_valkely.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = status_valkely.png; sourceTree = "<group>"; };
+		E503332D1FC74659002A92BE /* book04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book04.png; sourceTree = "<group>"; };
+		E503332F1FC74854002A92BE /* GL-Runen.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GL-Runen.ttf"; sourceTree = "<group>"; };
+		E50333301FC74DB1002A92BE /* sword.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sword.png; sourceTree = "<group>"; };
+		E50333311FC74E01002A92BE /* shield.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shield.png; sourceTree = "<group>"; };
+		E50333321FC74E57002A92BE /* boots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boots.png; sourceTree = "<group>"; };
+		E50333331FC74F20002A92BE /* lucky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lucky.png; sourceTree = "<group>"; };
+		E50333341FC754BC002A92BE /* Title03c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Title03c.png; sourceTree = "<group>"; };
+		E503333D1FC9A6AE002A92BE /* magic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = magic.png; sourceTree = "<group>"; };
+		E503333E1FC9A9A8002A92BE /* secret.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = secret.png; sourceTree = "<group>"; };
 		E560FABC1FC72C130081DEAE /* Digikore2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Digikore2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E560FABF1FC72C130081DEAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E560FAC11FC72C130081DEAE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -167,9 +192,9 @@
 		E560FB8A1FC735FF0081DEAE /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		E560FB8B1FC735FF0081DEAE /* r_leaf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = r_leaf.png; sourceTree = "<group>"; };
 		E560FB8C1FC735FF0081DEAE /* r_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = r_dark.png; sourceTree = "<group>"; };
-		E560FB8D1FC736000081DEAE /* sozai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sozai.png; sourceTree = "<group>"; };
 		E560FB8E1FC736000081DEAE /* r_shine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = r_shine.png; sourceTree = "<group>"; };
 		E560FB8F1FC736000081DEAE /* sozai2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sozai2.png; sourceTree = "<group>"; };
+		E5B9D1E41FCADF5E0003A676 /* sozai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sozai.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +225,7 @@
 		E560FAB31FC72C130081DEAE = {
 			isa = PBXGroup;
 			children = (
+				E503332F1FC74854002A92BE /* GL-Runen.ttf */,
 				E560FABE1FC72C130081DEAE /* Digikore2 */,
 				E560FAD31FC72C130081DEAE /* Digikore2Tests */,
 				E560FADE1FC72C130081DEAE /* Digikore2UITests */,
@@ -233,9 +259,19 @@
 				E560FAC61FC72C130081DEAE /* Assets.xcassets */,
 				E560FAC81FC72C130081DEAE /* LaunchScreen.storyboard */,
 				E560FACB1FC72C130081DEAE /* Info.plist */,
+				E50333341FC754BC002A92BE /* Title03c.png */,
+				E503333E1FC9A9A8002A92BE /* secret.png */,
+				E503332D1FC74659002A92BE /* book04.png */,
+				E50333301FC74DB1002A92BE /* sword.png */,
+				E50333311FC74E01002A92BE /* shield.png */,
+				E50333321FC74E57002A92BE /* boots.png */,
+				E503333D1FC9A6AE002A92BE /* magic.png */,
+				E50333331FC74F20002A92BE /* lucky.png */,
 				E560FB5C1FC731790081DEAE /* Extensions */,
 				E560FB4D1FC731490081DEAE /* Battle */,
 				E560FB311FC731040081DEAE /* SupportingFiles */,
+				E50333281FC740C0002A92BE /* DKUnitStatusView.swift */,
+				E503332A1FC740CC002A92BE /* DKUnitStatusView.xib */,
 			);
 			path = Digikore2;
 			sourceTree = "<group>";
@@ -270,6 +306,7 @@
 		E560FB321FC731040081DEAE /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				E503332C1FC7422A002A92BE /* status_valkely.png */,
 				E560FB8A1FC735FF0081DEAE /* logo.png */,
 				E560FB821FC735FD0081DEAE /* mes_bk.png */,
 				E560FB8C1FC735FF0081DEAE /* r_dark.png */,
@@ -281,9 +318,9 @@
 				E560FB871FC735FE0081DEAE /* s22.gif */,
 				E560FB811FC735FD0081DEAE /* sam2.gif */,
 				E560FB7E1FC735FD0081DEAE /* sammon2.gif */,
+				E5B9D1E41FCADF5E0003A676 /* sozai.png */,
 				E560FB851FC735FE0081DEAE /* slash.png */,
 				E560FB7F1FC735FD0081DEAE /* sougen.png */,
-				E560FB8D1FC736000081DEAE /* sozai.png */,
 				E560FB8F1FC736000081DEAE /* sozai2.png */,
 				E560FB861FC735FE0081DEAE /* title.png */,
 				E560FB841FC735FE0081DEAE /* ヴァルキリー.png */,
@@ -446,6 +483,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5B9D1E91FCAE14E0003A676 /* GL-Runen.ttf in Resources */,
+				E5B9D1E51FCADFAD0003A676 /* sozai.png in Resources */,
+				E5BABA051FC9BCC0008737A0 /* secret.png in Resources */,
+				E5BABA061FC9BCC0008737A0 /* magic.png in Resources */,
+				E503333C1FC75D8E002A92BE /* DKUnitStatusView.swift in Resources */,
+				E503333B1FC75D5C002A92BE /* status_valkely.png in Resources */,
+				E50333351FC75D56002A92BE /* Title03c.png in Resources */,
+				E50333361FC75D56002A92BE /* book04.png in Resources */,
+				E50333371FC75D56002A92BE /* sword.png in Resources */,
+				E50333381FC75D56002A92BE /* shield.png in Resources */,
+				E50333391FC75D56002A92BE /* boots.png in Resources */,
+				E503333A1FC75D56002A92BE /* lucky.png in Resources */,
 				E50333071FC7370E002A92BE /* logo.png in Resources */,
 				E50333081FC7370E002A92BE /* mes_bk.png in Resources */,
 				E50333091FC7370E002A92BE /* r_dark.png in Resources */,
@@ -459,7 +508,6 @@
 				E50333111FC7370E002A92BE /* sammon2.gif in Resources */,
 				E50333121FC7370E002A92BE /* slash.png in Resources */,
 				E50333131FC7370E002A92BE /* sougen.png in Resources */,
-				E50333141FC7370E002A92BE /* sozai.png in Resources */,
 				E50333151FC7370E002A92BE /* sozai2.png in Resources */,
 				E50333161FC7370E002A92BE /* title.png in Resources */,
 				E50333171FC7370E002A92BE /* ヴァルキリー.png in Resources */,
@@ -485,6 +533,7 @@
 				E50333041FC73701002A92BE /* BattleLogViewController.swift in Resources */,
 				E50333051FC73701002A92BE /* BattleUnitView.swift in Resources */,
 				E50333061FC73701002A92BE /* BattleUnitView.xib in Resources */,
+				E503332B1FC740CC002A92BE /* DKUnitStatusView.xib in Resources */,
 				E50332F71FC736F7002A92BE /* NSCoder+CodingKeySettable.swift in Resources */,
 				E50332F81FC736F7002A92BE /* UIImage+Cropping.swift in Resources */,
 				E50332F91FC736F7002A92BE /* UIImage+Gif.swift in Resources */,
@@ -537,6 +586,7 @@
 				E560FAC01FC72C130081DEAE /* AppDelegate.swift in Sources */,
 				E560FB781FC732AF0081DEAE /* BattleDetailLogViewController.swift in Sources */,
 				E560FB761FC732AF0081DEAE /* BattleLog.swift in Sources */,
+				E50333291FC740C0002A92BE /* DKUnitStatusView.swift in Sources */,
 				E560FB771FC732AF0081DEAE /* BattleAnimationViewController.swift in Sources */,
 				E560FB6F1FC731AD0081DEAE /* Enemy.swift in Sources */,
 				E560FB6C1FC731AD0081DEAE /* Character.swift.swift in Sources */,

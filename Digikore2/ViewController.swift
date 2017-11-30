@@ -49,6 +49,11 @@ class ViewController: UIViewController {
         guard let valkyrie = Character(name: "【戦乙女】ヴァルキリー", status: Status(hp: 1000 , str: 400, def: 300, agi: 100), element: .ray, charaImage: UIImage(named: "sozai.png")) else {
             return
         }
+        
+        let dkView = DKUnitStatusView(frame: CGRect(x: 0, y: 0, width: 600, height: 200))
+        dkView.setup(from: valkyrie)
+        
+        self.view.addSubview(dkView)
 
         self.valkyrie = valkyrie
         
