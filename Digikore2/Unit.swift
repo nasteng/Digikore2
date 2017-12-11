@@ -102,7 +102,7 @@ extension Unit: BattleLogicProtocol {
                 }
             }
             
-            let log = BattleLog(attacker: displayName, attackersHP: status.hitPoint.present,target: target.displayName, damage: damage, lastHPOfTarget: target.status.hitPoint.present, dead: dead)
+            let log = BattleLog(attacker: displayName, target: target.displayName, damage: damage, lastHPOfTarget: target.status.hitPoint.present, dead: dead)
             
             result(log)
         }
