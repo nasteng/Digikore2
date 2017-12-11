@@ -73,7 +73,7 @@ final class Character: Unit {
 
         self.standardImage = standardImage
         self.downImage = downImage
-        super.init(name: name, status: status, unitType: UnitType.divine, element: element, multiple: multipile)
+        super.init(name: name, status: status, type: UnitType.divine, element: element, multiple: multipile)
     }
     
     func getHungry() {

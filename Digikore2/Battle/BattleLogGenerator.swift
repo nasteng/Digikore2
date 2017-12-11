@@ -33,7 +33,7 @@ final class BattleLogGenerator {
                     if unit.status.hitPoint.present > 0 {
                         var target: Unit {
                             var index: Int = 0
-                            switch unit.unitType {
+                            switch unit.type {
                             case  .divine:
                                 index = arc4random_uniform(UInt32(enemies.count)).hashValue
                                 return enemies[index]

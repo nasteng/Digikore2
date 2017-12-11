@@ -167,12 +167,12 @@ class BattleAnimationViewController: UIViewController {
     func setupBattleField() {
 //        battleStartImageView.image = UIImage.gif(name: "battle")
         index = 0
-        divines = units.filter { $0.unitType == .divine }
-        enemies = units.filter { $0.unitType == .enemy }
+        divines = units.filter { $0.type == .divine }
+        enemies = units.filter { $0.type == .enemy }
         
         let divinePositionRect = divinePosition(formation: Formation(rawValue: divines.count)!)
         for (index, rect) in divinePositionRect.enumerated() {
-            let charaView = BattleUnitView(unit: divines[index], frame: rect)
+            let charaView = BattleUnitView(frame: rect)
             view.addSubview(charaView)
             charaView.setup(with: divines[index])
             allUnitViews.append(charaView)
@@ -180,23 +180,23 @@ class BattleAnimationViewController: UIViewController {
         
         let enemyPositionRect = enemyPosition(formation: Formation(rawValue: enemies.count)!)
         for (index, rect) in enemyPositionRect.enumerated() {
-            let charaView = BattleUnitView(unit: enemies[index], frame: rect)
+            let charaView = BattleUnitView(frame: rect)
             view.addSubview(charaView)
             charaView.setup(with: enemies[index])
             allUnitViews.append(charaView)
         }
         
-        let divineViews = allUnitViews.filter { $0.unit?.unitType == .divine}
-        let enemyViews = allUnitViews.filter { $0.unit?.unitType == .enemy }
+        let divineViews = allUnitViews.filter { $0.unitType == .divine}
+        let enemyViews = allUnitViews.filter { $0.unitType == .enemy }
 
         DispatchQueue.main.async {
             UIView.animate(withDuration: 0.5, animations: {
                 enemyViews.forEach { (unitView) in
-                    if unitView.unit?.displayName == "シャドウ1" {
+                    if unitView.name == "シャドウ1" {
                         unitView.frame = CGRect(x: (self.viewWidth - 96.0 * 4 + 12.0), y: self.drawableHeight / 2 + 12.0, width: 96, height: 96)
-                    } else if unitView.unit?.displayName == "シャドウ2" {
+                    } else if unitView.name == "シャドウ2" {
                         unitView.frame = CGRect(x: (self.viewWidth - 96.0 * 2.5), y: self.drawableHeight / 2 - 48.0, width: 96, height: 96)
-                    } else if unitView.unit?.displayName == "シャドウ3" {
+                    } else if unitView.name == "シャドウ3" {
                         unitView.frame = CGRect(x: (self.viewWidth - 96.0 * 2.5), y: self.drawableHeight - 108.0, width: 96, height: 96)
                     }
                 }
@@ -272,7 +272,7 @@ class BattleAnimationViewController: UIViewController {
             deadUnitView.alpha = 0.0
         })
         
-        allUnitViews = allUnitViews.filter {$0.viewIdentifier != targetName }
+        allUnitViews = allUnitViews.filter {$0.name != targetName }
         animator.startAnimation()
     }
     
@@ -316,8 +316,8 @@ class BattleAnimationViewController: UIViewController {
     }
     
     func judgeResult(from unitViews: [BattleUnitView]) -> String {
-        guard let lastUnit = unitViews.first?.unit else { return "lose" }
-        switch lastUnit.unitType {
+        guard let lastUnitType = unitViews.first?.unitType else { return "lose" }
+        switch lastUnitType {
         case .divine:
             return "win"
         case .enemy:
@@ -330,7 +330,7 @@ class BattleAnimationViewController: UIViewController {
         var targetView: BattleUnitView {
             var detectedView: BattleUnitView = BattleUnitView()
             allUnitViews.forEach { (unitView) in
-                if unitView.viewIdentifier == unitName {
+                if unitView.name == unitName {
                     detectedView = unitView
                 }
             }
