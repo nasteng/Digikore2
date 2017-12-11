@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 
 final class BattleLogGenerator {
     class func generateBattleLog(divines: [Unit], enemies: [Unit]) -> [BattleLog] {

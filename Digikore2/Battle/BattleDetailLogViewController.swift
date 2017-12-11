@@ -43,33 +43,24 @@ class BattleDetailLogViewController: UIViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
     }
     
-    func parse(_ logs: BattleLog) -> String {
-        var parsedText = ""
-        let attacker = logs.attacker
-        let target = logs.target
-        let damage = logs.damage
-        let dead = logs.dead
-        
-        if damage > 0 {
-            parsedText = ("\(attacker)の攻撃! \(target)に\(damage)のダメージ!")
-            //            let targetView = detectTargetView(with: target)
+    func parse(_ log: BattleLog) -> String {
+        var parsedText: String = ""
+        if log.damage > 0 {
+            parsedText = ("\(log.attacker)の攻撃! \(log.target)に\(log.damage)のダメージ!")
             
-            //            targetView.battleEffectImageView.animationImages = EffectImageManager.shared.effectImages(.slash)
-            //            targetView.battleEffectImageView.animationRepeatCount = 1
-            //            targetView.battleEffectImageView.startAnimating()
-            
-            if let dead = dead {
+            if let dead = log.dead {
                 switch dead {
                 case .divine:
-                    parsedText  += "\n" + target + "は死んでしまった"
+                    parsedText  += "\n" + log.target + "は死んでしまった"
                 case .enemy:
-                    parsedText += "\n" + target + "を浄化した!"
+                    parsedText += "\n" + log.target + "を浄化した!"
                 }
             }
-        } else {
-            parsedText = ("\(attacker)の攻撃! ミス!")
+            
+            return  parsedText
         }
         
+        parsedText = ("\(log.attacker)の攻撃! ミス!")
         return parsedText
     }
     
