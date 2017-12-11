@@ -215,17 +215,18 @@ extension UIImage {
         return  images
     }
     
-    func createGifURL(from croppedImages: [UIImage], loop: Bool = true, delay: CGFloat = 0.25) -> URL? {
+    class func createGifURL(from croppedImages: [UIImage], loop: Bool = true, delay: CGFloat = 0.25, completion: ((_ isFinish: Bool, _ url: URL?) -> Void)){
         
         let charaImages: [CGImage] = croppedImages.map{$0.cgImage!}
         
         guard let url = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("\(NSUUID().uuidString).gif") else {
             print("url化失敗")
-            return nil
+            return completion(false, nil)
         }
+        
         guard let destination = CGImageDestinationCreateWithURL(url as CFURL, kUTTypeGIF, charaImages.count, nil) else {
             print("CGImageDestinationの作成に失敗")
-            return nil
+            return completion(false, nil)
         }
         
         let property: [String: AnyObject] = [
@@ -242,10 +243,20 @@ extension UIImage {
         
         if CGImageDestinationFinalize(destination) {
             print("GIF生成が成功")
-            return url
+            completion(true, url)
         } else {
             print("GIF生成に失敗")
-            return nil
+            return completion(false, nil)
         }
+    }
+    
+    class func createGIfImage(from images: [UIImage]) -> UIImage? {
+        var image: UIImage?
+        createGifURL(from: images) { (canCreate, url) in
+            if let url = url, canCreate {
+                image = UIImage.gif(url: url.absoluteString)
+            }
+        }
+        return image
     }
 }
