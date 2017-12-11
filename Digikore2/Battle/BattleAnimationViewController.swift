@@ -212,6 +212,7 @@ class BattleAnimationViewController: UIViewController {
             Timer.scheduledTimer(withTimeInterval: 1.3, repeats: true, block: { (timer) in
                 if self.index < self.battleLogs.count, self.didBack == false {
                     self.show(log: self.battleLogs[self.index])
+                    self.index += 1
                 } else {
                     self.stopBattle()
                     timer.invalidate()
@@ -222,7 +223,7 @@ class BattleAnimationViewController: UIViewController {
     
     private func stopBattle() {
         guard self.index < self.battleLogs.count else {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7, execute: {
+            DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
                 SoundManager.shared.stop(.bgm(.battle))
                 
                 let judgement = self.judgeResult(from: self.allUnitViews)
@@ -261,8 +262,6 @@ class BattleAnimationViewController: UIViewController {
             if let _ = log.dead {
                 self.removeFromField(log.target)
             }
-            
-            self.index += 1
         }
         
         battleLogLabel.text = parse(log)
