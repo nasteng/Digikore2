@@ -242,11 +242,11 @@ class BattleAnimationViewController: UIViewController {
     }
     
     private func show(log: BattleLog) {
-        let attecker = log.attacker
-        let atterckerView = detectView(from: attecker)
+        let attacker = log.attacker
+        let attackerView = detectView(from: attacker)
         let targetView = detectView(from: log.target)
         
-        atterckerView.flash {
+        attackerView.flash {
             targetView.updateHPLabel(with: log.lastHPOfTarget)
             
             if log.damage > 0 {
