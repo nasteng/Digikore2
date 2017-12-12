@@ -213,7 +213,7 @@ class BattleAnimationViewController: UIViewController {
     private func startBattle() {
         timer = Timer.scheduledTimer(withTimeInterval: 1.3, repeats: true, block: { (_) in
             if self.index < self.battleLogs.count, self.didBack == false {
-                self.show(log: self.battleLogs[self.index])
+                self.animateView(from: self.battleLogs[self.index])
                 self.index += 1
             } else {
                 self.stopBattle()
@@ -241,7 +241,7 @@ class BattleAnimationViewController: UIViewController {
         
     }
     
-    private func show(log: BattleLog) {
+    private func animateView(from log: BattleLog) {
         let attacker = log.attacker
         let attackerView = detectView(from: attacker)
         let targetView = detectView(from: log.target)
@@ -255,7 +255,8 @@ class BattleAnimationViewController: UIViewController {
                 })
                 
                 switch log.attackerType {
-                case .divine:                     SoundManager.shared.play(.effect(.divine))
+                case .divine:
+                    SoundManager.shared.play(.effect(.divine))
                 case .enemy:
                     SoundManager.shared.play(.effect(.enemy))
                 }
