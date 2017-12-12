@@ -19,8 +19,10 @@ class BattleAnimationViewController: UIViewController {
     @IBOutlet weak var battleLogTextView: UIView!
     @IBOutlet weak var battleLogLabel: UILabel!
     @IBOutlet weak var battleStartImageView: UIImageView!
+    
     private var battleLogs: [BattleLog]!
     private var index: Int = 0
+    private var timer: Timer = Timer()
     private var allUnitViews: [BattleUnitView] = []
     private var divines: [Unit] = []
     private var enemies: [Unit] = []
@@ -61,11 +63,13 @@ class BattleAnimationViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         SoundManager.shared.stopAll()
         index = 0
+        timer.invalidate()
         didBack = true
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         SoundManager.shared.stopAll()
+        timer.invalidate()
         index = 0
         didBack = true
     }
@@ -162,7 +166,6 @@ class BattleAnimationViewController: UIViewController {
     
     
     func setupBattleField() {
-//        battleStartImageView.image = UIImage.gif(name: "battle")
         index = 0
         divines = units.filter { $0.type == .divine }
         enemies = units.filter { $0.type == .enemy }
@@ -208,35 +211,34 @@ class BattleAnimationViewController: UIViewController {
     }
     
     private func startBattle() {
-        DispatchQueue.main.asyncAfter(deadline: .now()) {
-            Timer.scheduledTimer(withTimeInterval: 1.3, repeats: true, block: { (timer) in
-                if self.index < self.battleLogs.count, self.didBack == false {
-                    self.show(log: self.battleLogs[self.index])
-                    self.index += 1
-                } else {
-                    self.stopBattle()
-                    timer.invalidate()
-                }
-            })
-        }
+        timer = Timer.scheduledTimer(withTimeInterval: 1.3, repeats: true, block: { (_) in
+            if self.index < self.battleLogs.count, self.didBack == false {
+                self.show(log: self.battleLogs[self.index])
+                self.index += 1
+            } else {
+                self.stopBattle()
+                self.timer.invalidate()
+            }
+        })
     }
     
     private func stopBattle() {
-        guard self.index < self.battleLogs.count else {
-            DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
-                SoundManager.shared.stop(.bgm(.battle))
-                
-                let judgement = self.judgeResult(from: self.allUnitViews)
-                self.battleLogLabel.text = judgement == "win" ? "戦いに勝利した" : "全滅..."
-                self.allUnitViews.forEach({ (unitView) in
-                    UIView.animate(withDuration: 1.0, animations: {
-                        unitView.frame = CGRect(x: self.view.frame.maxX + 96, y: unitView.frame.origin.y, width: 96, height: 96)
-                    })
-                })
-                SoundManager.shared.play(.result(Result(rawValue: judgement)!))
+        SoundManager.shared.stop(.bgm(.battle))
+        
+        let victory = self.judgeResult(from: self.allUnitViews)
+        self.battleLogLabel.text = victory ? "戦いに勝利した" : "全滅..."
+        self.allUnitViews.forEach({ (unitView) in
+            UIView.animate(withDuration: 1.0, animations: {
+                unitView.frame = CGRect(x: self.view.frame.maxX + 96, y: unitView.frame.origin.y, width: 96, height: 96)
             })
-            return
+        })
+
+        if victory {
+            SoundManager.shared.play(.result(Result(rawValue: "win")!))
+        } else {
+            SoundManager.shared.play(.result(Result(rawValue: "lose")!))
         }
+        
     }
     
     private func show(log: BattleLog) {
@@ -301,13 +303,13 @@ class BattleAnimationViewController: UIViewController {
         return parsedText
     }
     
-    func judgeResult(from unitViews: [BattleUnitView]) -> String {
-        guard let lastUnitType = unitViews.first?.unitType else { return "lose" }
+    func judgeResult(from unitViews: [BattleUnitView]) -> Bool {
+        guard let lastUnitType = unitViews.first?.unitType else { return false }
         switch lastUnitType {
         case .divine:
-            return "win"
+            return true
         case .enemy:
-            return "lose"
+            return false
         }
         
     }
