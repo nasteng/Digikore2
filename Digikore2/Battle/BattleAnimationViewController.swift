@@ -190,7 +190,7 @@ class BattleAnimationViewController: UIViewController {
         let enemyViews = allUnitViews.filter { $0.unitType == .enemy }
 
         DispatchQueue.main.async {
-            UIView.animate(withDuration: 0.5, animations: {
+            UIView.animate(withDuration: 0.8, animations: {
                 enemyViews.forEach { (unitView) in
                     if unitView.name == "シャドウ1" {
                         unitView.frame = CGRect(x: (self.viewWidth - 96.0 * 4 + 12.0), y: self.drawableHeight / 2 + 12.0, width: 96, height: 96)
@@ -203,7 +203,7 @@ class BattleAnimationViewController: UIViewController {
             })
             
             divineViews.forEach({ (unitView) in
-                unitView.baseView.fadeIn(duration: 0.5, delay: 0.7, completed: nil)
+                unitView.baseView.fadeIn(duration: 0.6, delay: 0.2, completed: nil)
             })
         }
         

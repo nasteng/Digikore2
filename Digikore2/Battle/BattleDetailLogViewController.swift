@@ -43,7 +43,7 @@ class BattleDetailLogViewController: UIViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
     }
     
-    func parse(_ log: BattleLog) -> String {
+    private func parse(_ log: BattleLog) -> String {
         var parsedText: String = ""
         if log.damage > 0 {
             parsedText = ("\(log.attacker)の攻撃! \(log.target)に\(log.damage)のダメージ!")

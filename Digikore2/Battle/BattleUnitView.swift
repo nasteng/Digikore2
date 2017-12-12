@@ -18,8 +18,8 @@ class BattleUnitView: UIView {
     @IBOutlet weak var HPBarView: UIView!
     @IBOutlet weak var elementImageView: UIImageView!
     @IBOutlet weak var HPBarWidthConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var battleEffectImageView: UIImageView!
+    
     private var gradientLayer: CAGradientLayer?
     private(set) var name: String?
     private(set) var unitType: UnitType?
