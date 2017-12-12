@@ -51,14 +51,29 @@ final class Character: Unit {
     
     // 後々APIを追加した時に、レスポンスがnilだったりすることを考慮してFailable Initializerにする
     init?(name: String, status: Status, element: Element, charaImage: UIImage?, multipile: Int? = nil) {
-        guard let charaImage = charaImage, let images = charaImage.createImagesForGif(with: (width: 64, height: 64), range: 0..<3) , let gifURL = charaImage.createGifURL(from: images)?.absoluteString, let image = UIImage.gif(url: gifURL), let downImages = charaImage.createImagesForGif(with: (width: 64, height: 64), range: 6..<9, row: 5), let donwGifURL = charaImage.createGifURL(from: downImages)?.absoluteString, let downImage = UIImage.gif(url: donwGifURL) else {
-            print("Error: Faild to Initialize Character")
+        // キャラ画像のnilチェック
+        guard let charaImage = charaImage else {
+            print("Error: Faild to Initialize Character - charaImage is nil")
+            return nil
+        }
+        
+        // 通常時のgif用imagesとダウン時のgif用imagesが生成できるかチェック
+        guard let standardImages = charaImage.createImagesForGif(with: (width: 64, height: 64), range: 0..<3),
+            let downImages = charaImage.createImagesForGif(with: (width: 64, height: 64), range: 6..<9, row: 5) else {
+            print("Error: Faild to Initialize Character - cannot create images for gif from image")
+            return nil
+        }
+        
+        // 通常時gifとダウン時gifの生成をチェック
+        guard let standardImage = UIImage.createGIfImage(from: standardImages),
+            let downImage = UIImage.createGIfImage(from: downImages) else {
+            print("Error: Faild to Initialize Character - cannot create standard gif or down gif")
             return nil
         }
 
-        self.standardImage = image
+        self.standardImage = standardImage
         self.downImage = downImage
-        super.init(name: name, status: status, unitType: UnitType.divine, element: element, multiple: multipile)
+        super.init(name: name, status: status, type: UnitType.divine, element: element, multiple: multipile)
     }
     
     func getHungry() {

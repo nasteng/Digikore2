@@ -18,23 +18,18 @@ class BattleUnitView: UIView {
     @IBOutlet weak var HPBarView: UIView!
     @IBOutlet weak var elementImageView: UIImageView!
     @IBOutlet weak var HPBarWidthConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var battleEffectImageView: UIImageView!
+    
     private var gradientLayer: CAGradientLayer?
-    private(set) var unit: Unit?
-    private(set) var viewIdentifier: String?
+    private(set) var name: String?
+    private(set) var unitType: UnitType?
+    private(set) var maxHP: Int?
     var isHighlighted: Bool = false
     
     // コードから初期化はここから
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
-    }
-    
-    // 原則このinitを使う
-    convenience init(unit: Unit, frame: CGRect) {
-        self.init(frame: frame)
-        self.unit = unit
     }
     
     // Storyboard/xib から初期化はここから
@@ -53,7 +48,7 @@ class BattleUnitView: UIView {
     }
     
     func setup(with unit: Unit) {
-        if unit.unitType == .divine {
+        if unit.type == .divine {
             self.sammonEffectImageView.image = UIImage.gif(name: "s22")
 //            self.unitImageView.alpha = 0.0
             self.sammonEffectImageView.alpha = 0.0
@@ -63,7 +58,9 @@ class BattleUnitView: UIView {
         
         self.unitImageView.image = unit.batleImage
         self.elementImageView.image = unit.element.image
-        self.viewIdentifier = unit.displayName
+        self.name = unit.displayName
+        self.unitType = unit.type
+        self.maxHP = unit.status.hitPoint.max
         self.HPLabel.text = "\(unit.status.hitPoint.present)/\(unit.status.hitPoint.max)"
         
         //グラデーションの開始色
@@ -90,7 +87,7 @@ class BattleUnitView: UIView {
     }
     
     func updateHPLabel(with lastHP: Int) {
-        guard let maxHP = unit?.status.hitPoint.max else {
+        guard let maxHP = maxHP else {
             return
         }
         
@@ -99,12 +96,25 @@ class BattleUnitView: UIView {
     
     func updateHPBar(ratio: Int) {
         let lastHP = CGFloat(ratio)
-        guard let maxHPInt = unit?.status.hitPoint.max else {
+        guard let maxHP = maxHP else {
             return
         }
-        let maxHP = CGFloat(maxHPInt)
+
+        HPBarWidthConstraint.constant = frame.width * (lastHP / CGFloat(maxHP))
+    }
+    
+    func flash(after: (() -> Void)? = nil) {
+        UIView.animate(withDuration: 0.1, delay: 0.0, options: .repeat, animations: {
+            self.alpha = 0.0
+            self.isHighlighted = true
+        }, completion: nil)
         
-        HPBarWidthConstraint.constant = frame.width * (lastHP / maxHP)
+        Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { (timer) in
+            self.alpha = 1.0
+            self.isHighlighted = false
+            self.layer.removeAllAnimations()
+            after?()
+        }
     }
     
     override func layoutSubviews() {
