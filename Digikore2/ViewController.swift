@@ -139,7 +139,7 @@ class ViewController: UIViewController {
     @objc func move(_ timer: Timer) {
         if valkyrie.condition != .hungry {
             // キャラ画像のframeを変数に格納
-            var frame = imageView.frame
+            let frame = imageView.frame
             
             // 移動量を定義して変数に格納
             let moveX: CGFloat = 50.0
@@ -148,18 +148,17 @@ class ViewController: UIViewController {
             if frame.origin.x < 0 {
                 // 右を向いてることを表すためにフラグをfalseにする
                 isLeft = false
-                
                 // もしキャラのx座標が右端(画面の最大x座標 - imageViewのサイズ分)に到達したら
             } else if frame.origin.x > view.frame.maxX - imageView.frame.width {
                 // 左を向いていることを表すためにフラグをtrueにする
                 isLeft = true
             }
-            
-            // 左を向いていれば左に動かすためにx軸の値をマイナス、逆ならプラスする
-            isLeft ? (frame.origin.x -= moveX) : (frame.origin.x += moveX)
-            
-            // imageViewのframeに代入
-            imageView.frame = frame
+
+            if isLeft {
+                imageView.frame = CGRect(x: frame.origin.x - moveX, y: frame.origin.y, width: frame.width, height: frame.height)
+            } else {
+                imageView.frame = CGRect(x: frame.origin.x + moveX, y: frame.origin.y, width: frame.width, height: frame.height)
+            }
         }
     }
 

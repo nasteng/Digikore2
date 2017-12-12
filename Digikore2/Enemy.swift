@@ -9,6 +9,6 @@ import Foundation
 
 final class Enemy: Unit {
     init(name: String, status: Status, element: Element, multiple: Int? = nil) {
-        super.init(name: name, status: status, unitType: .enemy, element: element, multiple: multiple)
+        super.init(name: name, status: status, type: .enemy, element: element, multiple: multiple)
     }
 }

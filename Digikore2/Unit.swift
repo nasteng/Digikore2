@@ -59,15 +59,15 @@ class Unit {
     let name: String
     let displayName: String
     var status: Status
-    let unitType: UnitType
+    let type: UnitType
     let element: Element
     let batleImage: UIImage?
     let multiple: Int?
     
-    init(name: String, status: Status, unitType: UnitType, element: Element, multiple: Int? = nil) {
+    init(name: String, status: Status, type: UnitType, element: Element, multiple: Int? = nil) {
         self.multiple = multiple
         self.status = status
-        self.unitType = unitType
+        self.type = type
         self.element = element
         if let image = UIImage(named: name) {
             self.batleImage = image
@@ -98,11 +98,11 @@ extension Unit: BattleLogicProtocol {
         if target.status.hitPoint.present > 0 {
             target.damaged(amount: damage){ isDead in
                 if isDead {
-                    dead = UnitType(rawValue: target.unitType.rawValue)
+                    dead = UnitType(rawValue: target.type.rawValue)
                 }
             }
             
-            let log = BattleLog(attacker: displayName, attackersHP: status.hitPoint.present,target: target.displayName, damage: damage, lastHPOfTarget: target.status.hitPoint.present, dead: dead)
+            let log = BattleLog(attacker: displayName, attackerType: type, target: target.displayName, damage: damage, lastHPOfTarget: target.status.hitPoint.present, dead: dead)
             
             result(log)
         }

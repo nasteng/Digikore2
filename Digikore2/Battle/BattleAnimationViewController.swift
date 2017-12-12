@@ -19,6 +19,7 @@ class BattleAnimationViewController: UIViewController {
     @IBOutlet weak var battleLogTextView: UIView!
     @IBOutlet weak var battleLogLabel: UILabel!
     @IBOutlet weak var battleStartImageView: UIImageView!
+    
     private var battleLogs: [BattleLog]!
     private var index: Int = 0
     private var timer: Timer = Timer()
@@ -41,11 +42,11 @@ class BattleAnimationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         drawableHeight = view.bounds.height - battleLogTextView.bounds.height
-        setupBattleField()
         viewWidth = view.bounds.width
-
-        
         self.navigationController?.delegate = self
+        setupBattleField()
+        startBattle()
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -61,8 +62,8 @@ class BattleAnimationViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         SoundManager.shared.stopAll()
-        timer.invalidate()
         index = 0
+        timer.invalidate()
         didBack = true
     }
     
@@ -165,14 +166,13 @@ class BattleAnimationViewController: UIViewController {
     
     
     func setupBattleField() {
-//        battleStartImageView.image = UIImage.gif(name: "battle")
         index = 0
-        divines = units.filter { $0.unitType == .divine }
-        enemies = units.filter { $0.unitType == .enemy }
+        divines = units.filter { $0.type == .divine }
+        enemies = units.filter { $0.type == .enemy }
         
         let divinePositionRect = divinePosition(formation: Formation(rawValue: divines.count)!)
         for (index, rect) in divinePositionRect.enumerated() {
-            let charaView = BattleUnitView(unit: divines[index], frame: rect)
+            let charaView = BattleUnitView(frame: rect)
             view.addSubview(charaView)
             charaView.setup(with: divines[index])
             allUnitViews.append(charaView)
@@ -180,175 +180,146 @@ class BattleAnimationViewController: UIViewController {
         
         let enemyPositionRect = enemyPosition(formation: Formation(rawValue: enemies.count)!)
         for (index, rect) in enemyPositionRect.enumerated() {
-            let charaView = BattleUnitView(unit: enemies[index], frame: rect)
+            let charaView = BattleUnitView(frame: rect)
             view.addSubview(charaView)
             charaView.setup(with: enemies[index])
             allUnitViews.append(charaView)
         }
         
-        let divineViews = allUnitViews.filter { $0.unit?.unitType == .divine}
-        let enemyViews = allUnitViews.filter { $0.unit?.unitType == .enemy }
+        let divineViews = allUnitViews.filter { $0.unitType == .divine}
+        let enemyViews = allUnitViews.filter { $0.unitType == .enemy }
 
         DispatchQueue.main.async {
-//            self.battleStartImageView.fadeOut(duration: 0.5, delay: 0.9, completed: {
-                UIView.animate(withDuration: 0.5, animations: {
-                    enemyViews.forEach { (unitView) in
-                        if unitView.unit?.displayName == "シャドウ1" {
-                            unitView.frame = CGRect(x: (self.viewWidth - 96.0 * 4 + 12.0), y: self.drawableHeight / 2 + 12.0, width: 96, height: 96)
-                        } else if unitView.unit?.displayName == "シャドウ2" {
-                            unitView.frame = CGRect(x: (self.viewWidth - 96.0 * 2.5), y: self.drawableHeight / 2 - 48.0, width: 96, height: 96)
-                        } else if unitView.unit?.displayName == "シャドウ3" {
-                            unitView.frame = CGRect(x: (self.viewWidth - 96.0 * 2.5), y: self.drawableHeight - 108.0, width: 96, height: 96)
-                        }
+            UIView.animate(withDuration: 0.8, animations: {
+                enemyViews.forEach { (unitView) in
+                    if unitView.name == "シャドウ1" {
+                        unitView.frame = CGRect(x: (self.viewWidth - 96.0 * 4 + 12.0), y: self.drawableHeight / 2 + 12.0, width: 96, height: 96)
+                    } else if unitView.name == "シャドウ2" {
+                        unitView.frame = CGRect(x: (self.viewWidth - 96.0 * 2.5), y: self.drawableHeight / 2 - 48.0, width: 96, height: 96)
+                    } else if unitView.name == "シャドウ3" {
+                        unitView.frame = CGRect(x: (self.viewWidth - 96.0 * 2.5), y: self.drawableHeight - 108.0, width: 96, height: 96)
                     }
-                })
-                
-                divineViews.forEach({ (unitView) in
-//                    unitView.sammonEffectImageView.fadeIn(duration: 1.0, completed: {
-                        unitView.baseView.fadeIn(duration: 0.5, delay: 0.7, completed: nil)
-//                        unitView.sammonEffectImageView.fadeOut(duration: 0.5, delay: 0.7, completed: nil)
-                    })
-//                })
-//            })
-            SoundManager.shared.play(.bgm(.battle))
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            if !self.didBack {
-                self.timer = Timer.scheduledTimer(timeInterval: 1.3, target: self, selector: #selector(self.showBattleLog(_:)), userInfo: self.battleLogs, repeats: true)
-            }
-        }
-    }
-    
-    @objc func showBattleLog(_ timer:Timer!) {
-        let logs = timer.userInfo as! [BattleLog]
-        
-        let shouldMoveUnitName = logs[index].attacker
-        let targetView = detectTargetView(with: shouldMoveUnitName)
-        UIView.animate(withDuration: 0.1, delay: 0.0, options: .repeat, animations: {
-            targetView.unitImageView.alpha = 0.0
-            targetView.isHighlighted = true
-        })
-        
-        Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(stopFlashing), userInfo: nil, repeats: false)
-        
-        battleLogLabel.text = parse(logs[index])
-    }
-    
-    @objc func stopFlashing() {
-        let log = battleLogs[index]
-        allUnitViews.forEach { (unitView) in
-            if unitView.isHighlighted {
-                unitView.layer.removeAllAnimations()
-                unitView.unitImageView.alpha = 1.0
-            }
-            
-            unitView.layoutSubviews()
-        }
-        
-        updateHitPointWindow(with: log)
-        
-        let shoudMoveUnit = log.attacker
-        
-        if log.damage > 0 {
-            if divines.contains(where: {($0.displayName == shoudMoveUnit)}) {
-                SoundManager.shared.play(.effect(.divine))
-            }
-            
-            if enemies.contains(where: {($0.displayName == shoudMoveUnit)}) {
-                SoundManager.shared.play(.effect(.enemy))
-            }
-        }
-        
-        if let _ = log.dead {
-            removeFromField(log.target)
-        }
-        
-        index += 1
-        print("index -> \(index), count -> \(battleLogs.count)")
-        
-        guard index < battleLogs.count else {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7, execute: {
-                self.timer.invalidate()
-                SoundManager.shared.stop(.bgm(.battle))
-                
-                let judgement = self.judgeResult(from: self.allUnitViews)
-                self.battleLogLabel.text = judgement == "win" ? "戦いに勝利した" : "全滅..."
-                self.allUnitViews.forEach({ (unitView) in
-                    UIView.animate(withDuration: 1.0, animations: {
-                        unitView.frame = CGRect(x: self.view.frame.maxX + 96, y: unitView.frame.origin.y, width: 96, height: 96)
-                    })
-                })
-                SoundManager.shared.play(.result(Result(rawValue: judgement)!))
+                }
             })
-            return
+            
+            divineViews.forEach({ (unitView) in
+                unitView.baseView.fadeIn(duration: 0.6, delay: 0.2, completed: nil)
+            })
         }
+        
+        SoundManager.shared.play(.bgm(.battle))
+    }
+    
+    private func startBattle() {
+        timer = Timer.scheduledTimer(withTimeInterval: 1.3, repeats: true, block: { (_) in
+            if self.index < self.battleLogs.count, self.didBack == false {
+                self.animateView(from: self.battleLogs[self.index])
+                self.index += 1
+            } else {
+                self.stopBattle()
+                self.timer.invalidate()
+            }
+        })
+    }
+    
+    private func stopBattle() {
+        SoundManager.shared.stop(.bgm(.battle))
+        
+        let victory = self.judgeResult(from: self.allUnitViews)
+        self.battleLogLabel.text = victory ? "戦いに勝利した" : "全滅..."
+        self.allUnitViews.forEach({ (unitView) in
+            UIView.animate(withDuration: 1.0, animations: {
+                unitView.frame = CGRect(x: self.view.frame.maxX + 96, y: unitView.frame.origin.y, width: 96, height: 96)
+            })
+        })
+
+        if victory {
+            SoundManager.shared.play(.result(Result(rawValue: "win")!))
+        } else {
+            SoundManager.shared.play(.result(Result(rawValue: "lose")!))
+        }
+        
+    }
+    
+    private func animateView(from log: BattleLog) {
+        let attacker = log.attacker
+        let attackerView = detectView(from: attacker)
+        let targetView = detectView(from: log.target)
+        
+        attackerView.flash {
+            targetView.updateHPLabel(with: log.lastHPOfTarget)
+            
+            if log.damage > 0 {
+                self.allUnitViews.forEach({ (unitView) in
+                    unitView.layoutSubviews()
+                })
+                
+                switch log.attackerType {
+                case .divine:
+                    SoundManager.shared.play(.effect(.divine))
+                case .enemy:
+                    SoundManager.shared.play(.effect(.enemy))
+                }
+            }
+            
+            if let _ = log.dead {
+                self.removeFromField(log.target)
+            }
+        }
+        
+        battleLogLabel.text = parse(log)
     }
     
     func removeFromField(_ targetName: String) {
-        let deadUnitView = detectTargetView(with: targetName)
+        let deadUnitView = detectView(from: targetName)
         let animator = UIViewPropertyAnimator(duration: 0.3, curve: .easeIn, animations: {
             deadUnitView.alpha = 0.0
         })
         
-        allUnitViews = allUnitViews.filter {$0.viewIdentifier != targetName }
+        allUnitViews = allUnitViews.filter {$0.name != targetName }
         animator.startAnimation()
     }
     
-    func parse(_ logs: BattleLog) -> String {
+    func parse(_ log: BattleLog) -> String {
         var parsedText = ""
-        let attacker = logs.attacker
-        let target = logs.target
-        let damage = logs.damage
-        let dead = logs.dead
-        
-        if damage > 0 {
-            parsedText = ("\(attacker)の攻撃! \(target)に\(damage)のダメージ!")
-            let targetView = detectTargetView(with: target)
+        if log.damage > 0 {
+            parsedText = ("\(log.attacker)の攻撃! \(log.target)に\(log.damage)のダメージ!")
+            let targetView = detectView(from: log.target)
             
-            targetView.updateHPBar(ratio: logs.lastHPOfTarget)
-            //            targetView.battleEffectImageView.animationImages = EffectImageManager.shared.effectImages(.slash)
-            //            targetView.battleEffectImageView.animationRepeatCount = 1
-            //            targetView.battleEffectImageView.startAnimating()
+            targetView.updateHPBar(ratio: log.lastHPOfTarget)
             
-            if let dead = dead {
+            if let dead = log.dead {
                 switch dead {
                 case .divine:
-                    parsedText += "\n" + target + "は死んでしまった"
+                    parsedText += "\n" + log.target + "は死んでしまった"
                 case .enemy:
-                    parsedText += "\n" + target + "を浄化した!"
+                    parsedText += "\n" + log.target + "を浄化した!"
                 }
             }
-        } else {
-            parsedText = ("\(attacker)の攻撃! ミス!")
+            
+            return parsedText
         }
         
+        parsedText = ("\(log.attacker)の攻撃! ミス!")
         return parsedText
     }
     
-    func updateHitPointWindow(with log: BattleLog) {
-        let target = log.target
-        let lastHP = log.lastHPOfTarget
-        let targetView = detectTargetView(with: target)
-        targetView.updateHPLabel(with: lastHP)
-    }
-    
-    func judgeResult(from unitViews: [BattleUnitView]) -> String {
-        guard let lastUnit = unitViews.first?.unit else { return "lose" }
-        switch lastUnit.unitType {
+    func judgeResult(from unitViews: [BattleUnitView]) -> Bool {
+        guard let lastUnitType = unitViews.first?.unitType else { return false }
+        switch lastUnitType {
         case .divine:
-            return "win"
+            return true
         case .enemy:
-            return "lose"
+            return false
         }
         
     }
     
-    func detectTargetView(with unitName: String) -> BattleUnitView {
+    func detectView(from unitName: String) -> BattleUnitView {
         var targetView: BattleUnitView {
             var detectedView: BattleUnitView = BattleUnitView()
             allUnitViews.forEach { (unitView) in
-                if unitView.viewIdentifier == unitName {
+                if unitView.name == unitName {
                     detectedView = unitView
                 }
             }

@@ -17,7 +17,7 @@ class DungeonLog {
         self.title = title
         let allUnit = survives + enemies
         allUnit.forEach { (unit) in
-            let loggedUnit = Unit(name: unit.name, status: unit.status, unitType: unit.unitType, element: unit.element, multiple: unit.multiple)
+            let loggedUnit = Unit(name: unit.name, status: unit.status, type: unit.type, element: unit.element, multiple: unit.multiple)
             loggedUnits.append(loggedUnit)
         }
     }
@@ -61,7 +61,7 @@ class BattleLogViewController: UIViewController {
             createEnemy()
             let dungeonLog = DungeonLog(title: "敵と遭遇した！", survives: divines, enemies: enemies)
             
-            let logs = BattleLogGenerator.generateBattleLog(divines: divines, enemies: enemies).logs
+            let logs = BattleLogGenerator.generateBattleLog(divines: divines, enemies: enemies)
             
             divines = divines.filter { $0.status.hitPoint.present > 0 }
             
@@ -88,7 +88,7 @@ class BattleLogViewController: UIViewController {
     
     func createEnemy() {
         enemies.removeAll()
-        createEnemies().forEach{ enemies.append($0) }
+        createEnemies().forEach { enemies.append($0) }
         
     }
     
@@ -167,7 +167,7 @@ extension BattleLogViewController: UITableViewDataSource {
             cell.textLabel?.text = "戦闘開始！！"
             cell.selectionStyle = .none
         case .dungeonLog:
-            let surviveDivines = allDungeonLogs[indexPath.row].loggedUnits.filter { $0.unitType == UnitType.divine && $0.status.hitPoint.present > 0 }
+            let surviveDivines = allDungeonLogs[indexPath.row].loggedUnits.filter { $0.type == UnitType.divine && $0.status.hitPoint.present > 0 }
             cell.textLabel?.text = log.title
             cell.detailTextLabel?.text = "ユニット状況 \(surviveDivines.count)" + "/ \(participation)"
             return cell

@@ -10,15 +10,15 @@ import Foundation
 
 final class BattleLog {
     let attacker: String
-    let attackersHP: Int
+    let attackerType: UnitType
     let target: String
     let dead: UnitType?
     let damage: Int
     let lastHPOfTarget: Int
     
-    init(attacker: String, attackersHP: Int = 0, target: String, damage: Int, lastHPOfTarget: Int, dead: UnitType?) {
+    init(attacker: String, attackerType: UnitType, target: String, damage: Int, lastHPOfTarget: Int, dead: UnitType?) {
         self.attacker = attacker
-        self.attackersHP = attackersHP
+        self.attackerType = attackerType
         self.target = target
         self.dead = dead
         self.damage = damage
